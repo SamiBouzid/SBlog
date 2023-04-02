@@ -414,6 +414,7 @@ footer {
   .scroll-to-bottom {
     display: block; /* Show the 'scroll-to-bottom' link */
     top: 46%;
+    border-bottom: 1px solid transparent;
   }
   .scroll-to-bottom:hover .VM-only-underline {
     border-bottom: 1px solid var(--text-color);
