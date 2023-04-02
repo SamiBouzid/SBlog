@@ -36,7 +36,7 @@ header {
   align-items: center;
   height: 80px;
   padding: 0 25px;
-  font-size: 20px;
+  font-size: 19px;
   top: 0;
   left: 0;
   right: 0;
@@ -142,7 +142,7 @@ footer {
   display: block;
   align-items: flex-start;
   padding: 100px 25px;
-  font-size: 20px;
+  font-size: 18px;
   padding-bottom: 100px;
 }
 #f-logo-nav {
@@ -436,19 +436,8 @@ display: inline;
 }
 
 /**********************MEDIA QUERY**********************/
-@media (max-width: 1013px) {
-  /*HEADER / FOOTER*/
-  .nav {
-    display: none;
-  }
-  .footer-right-menu{
-    display: none;
-  }
-  .footer-right-menu{
-    display: none;
-  }
-
-/*EdExCer*/
+/* ED-XP-CER */
+@media (max-width: 1100px) {
 #certif h3, #proxp h3 {
   /*font-size: clamp(20px, 4vw, 64px);*/
   margin-top: 100px;
@@ -461,4 +450,63 @@ display: inline;
     display: none;
   }
 
+}
+/*HEADER - CSS*/
+.scroll-to-bottom {
+  display: none; /* Hide the 'scroll-to-bottom' link by default */
+  text-decoration: none;
+  color: var(--text-color);
+  display: none; /* Hide the 'scroll-to-bottom' link by default */
+  position: absolute; /* Set the link position to absolute */
+  top: 50%; /* Position the link vertically in the center */
+  left: 50%; /* Position the link horizontally in the center */
+  transform: translate(-50%, -50%); /* Adjust the link position relative to its own size */
+}
+/* HEADER*/
+@media (max-width: 980px) {
+  .nav {
+    display: none; /* Hide all list items */
+  }
+  .scroll-to-bottom {
+    display: block; /* Show the 'scroll-to-bottom' link */
+    top: 46%;
+  }
+  .scroll-to-bottom:hover .VM-only-underline {
+    border-bottom: 1px solid var(--text-color);
+  }
+  .scroll-to-bottom::after {
+    content: "▾";
+    margin-right: 5px;
+    font-family: monospace;
+  }
+}
+/* FOOTER */
+@media (max-width: 1050px) {
+  .footer-menu, .f-submenu {
+  display: block;
+  }
+  .f-submenu {
+    position: static; /* Remove the absolute positioning for the submenu */
+  }
+  .footer-menu > li { /* Add space between main menu items */
+    margin-bottom: 100px;
+  }
+}
+/*PRESENTATION*/
+@media (max-width: 980px) {
+  .Presentation {
+    display: block;
+  }
+
+  .presleft,
+  .introright {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .introright {
+    clear: both;
+    position: static;
+  }
 }
