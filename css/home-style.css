@@ -1,0 +1,409 @@
+/******************** BODY ********************/
+body, h1 {
+  background-color: #005454;
+  color: #ffc98a;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 348;
+  width: 100%;
+  overflow-x: hidden;
+}  
+body a:not(#articlesp2 a) {
+  white-space: nowrap;
+}
+img {
+  width: 100%; /* This will make the image responsive to the container's width */
+  height: auto; /* This will maintain the aspect ratio */
+  object-fit: contain; /* This will prevent the image from being distorted */
+}
+
+/********************HEADER********************/
+#wrap {    
+  height: 110px;
+}
+.header-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+/* HEADER */
+header {
+  position: fixed;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding: 0 25px;
+  font-size: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background-color 0.1s;
+}
+/* LOGO */
+.logo {
+  width: 80px;
+  margin-right: 0px;
+  margin-left: -15px;
+  transition: opacity 0.1s;
+  position: absolute;
+  top: 46%;
+  transform: translateY(-50%);
+}
+/* NAVIGATION */
+.nav {
+  list-style-type: none;
+  display: flex;
+  margin-left: 40px;
+  flex-wrap: wrap;
+}
+.nav li {
+  display: inline;
+  padding: 10px;
+  margin: 15px;
+  margin-left: 0;
+  position: relative;
+}
+.nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  display: inline-block; 
+}
+.has-submenu::after {
+  content: "▾";
+  margin-right: 5px;
+  font-family: monospace;
+}
+.has-submenu.active::after {
+  content: "▹";
+  margin-right: 5px;
+  font-family: monospace;
+}
+.about:hover {
+  border-bottom: 1px solid #ffc98a;
+}
+.has-submenu:hover .link-text, .has-submenu.active .link-text {
+  border-bottom: 1px solid #ffc98a;
+}
+.submenu a:hover {
+  border-bottom: 1px solid #ffc98a;
+}
+.submenu {
+  display: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 25px;
+  margin-top: 26px;
+  text-align: left;
+  height: auto; 
+  width: 148px;
+  position: absolute;
+  background-color: var(--submenu-bg-color);
+  transition: background-color 0.1s;
+  left: -0px;
+}
+.submenu li {
+  padding: 0;
+  margin: 0;
+}
+.submenu li a {
+  margin-bottom: 8px;
+  border-bottom: 1px solid transparent;
+}
+/* SEARCH*/
+.search {
+  text-align: right;
+}
+.search a {
+  display: block;
+  text-decoration: none;
+  color: var(--text-color);
+}
+:root {
+  --text-color: #ffc98a;
+  --text-color-scrolled: white;
+  --submenu-bg-color: transparent;
+  --submenu-bg-color-scrolled: black;
+}
+.about:hover,
+.has-submenu:hover .link-text,
+.has-submenu.active .link-text,
+.submenu a:hover,
+.search a:hover {
+  border-bottom: 1px solid var(--text-color);
+}
+
+/********************FOOTER********************/
+/* FOOTER */
+footer {
+  display: block;
+  align-items: flex-start;
+  padding: 100px 25px;
+  font-size: 20px;
+  padding-bottom: 100px;
+}
+#f-logo-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.footer-right-menu {
+  justify-content: right;
+}
+/* LOGO */
+#footerlogo img {
+  width: 80px;
+  margin-top: -14px; /* move the logo up by 10px */
+  margin-left: -15px;
+  flex: 1;
+}
+/* MENU */
+.footer-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  margin-right: 15px;
+}
+.footer-menu li {
+  margin: 0 20px;
+  position: relative;
+}
+.footer-menu a {
+  text-decoration: none;
+  color: #ffc98a;
+}
+/* SUBMENU */
+.f-has-submenu:hover .f-submenu { /* fix submenu disappearing issue */
+  display: block;
+}
+.f-submenu li { /* fix submenu alignment issue */
+  text-align: left;
+}
+.f-has-submenu{
+  font-weight: bold;
+}
+.f-submenu {
+  list-style: none;
+  padding: 0;
+  margin-top: 5px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+.f-submenu li {
+  margin: 0;
+  white-space: nowrap; /* to display submenus in 1 line*/
+}
+.footer-menu li:not(:last-child) {
+  margin-right: 90px;
+}
+.f-submenu li:not(:last-child) {
+  margin-bottom: 4px;
+}
+.f-submenu li a:hover {
+  border-bottom: 1px solid #ffc98a;
+}
+.footer-bot {
+  margin-top: 220px;
+  border-top: 1px solid #ffc98a;
+  display: flex;
+  align-items: flex-start;
+  margin-right: auto;
+}
+.footer-bot h2 {
+  font-size: 18px;
+  font-weight: 350;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 5px;
+  margin-right: 23%;
+}
+.footer-bot a {
+  text-decoration: none;
+  color: #ffc98a;
+  margin-top: 5px;
+}
+.footer-bot a span:hover {
+  border-bottom: 1px solid #ffc98a;
+}
+
+/********************INTRO********************/
+#intro {
+  padding: 0 25px;
+  padding-top: 300px;
+  padding-bottom: 50px;
+  font-weight: 348;
+  font-size: 32px;
+  display: flex;
+  justify-content: space-between;
+}
+#intro h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 83px;
+  font-weight: 350;
+}
+.introleft {
+  flex: 1;
+  padding-right: 100px;
+  margin-top: 0;
+  padding-top: 10px;
+}
+.introright {
+  width: 50%;
+}
+
+/******************** CORE CONTENT (3 parts) ********************/
+#backgroundcolor {
+  background-color:black;
+  color: white;
+}
+#corecontent {
+  padding-top: 100px; 
+  margin-top: 20px; 
+}
+.section h2 {
+  margin-top: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  font-weight: 200;
+}
+
+.section {
+  padding-bottom: 80px;
+  padding: 0;
+  padding-top: 0;
+  border-top: 1px solid white;
+  margin:0 25px;
+}
+
+/***Part1***/
+#part1 {
+  display: inline-block;
+  padding-top: 0px;
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 200;
+}
+.part1right {
+  flex: 1;
+
+}
+.part1left {
+  width: 50%;
+  margin-right: 20px;
+}
+#part1 h2 {
+  margin-bottom: 0;
+}
+
+#part1 p {
+  font-size: 22px;
+  padding-right: 0;
+  margin-right: 150px;
+}
+
+/***Part2***/
+#topofp2 {
+  display: inline-block;
+  padding-top: 0px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+#topofp2 a {
+  text-decoration: none;
+  color: white;
+  border-bottom: 1px solid white;
+  margin-top: 25px;
+  padding-bottom:0;
+  box-sizing: border-box;
+  width: auto;
+  height: 21px;
+  font-size: 18px;
+}
+#topofp2 a:hover {
+  border-bottom: 1px solid grey;
+  }
+  .image-container {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align title and subtitle to the left of the image */
+    width: calc(33.333% - 15px); /* Adjust the '15px' to set the gap between images */
+    padding-bottom: 80px;
+}
+.square-image {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Set the padding-bottom equal to the width for a square aspect ratio */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: opacity 0.1s;
+    opacity: 1;
+}
+.image-container:hover .square-image {
+  opacity: 1; /* Change this value to the desired opacity level */
+}
+.image-title {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 18px;
+    transition: color 0.1s;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.1s;
+}
+.image-subtitle {
+    margin-top: 5px;
+    font-size: 14px;
+}
+.image-container:hover .image-title {
+    border-color: #ffffff; /* Change this to the desired hover color */
+}
+#articlesp2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align images to the top */
+    flex-wrap: wrap;
+}
+.image-container p {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+/***Part3***/
+#part3 {
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#part3 p {
+  font-size: 50px;
+  padding-top: 15px !important;
+  margin-top: 0 !important;
+  font-family: 'Cormorant Garamond', serif;
+
+}
+#part3 video {
+  border: none;
+  outline: none;
+  width: 80%; /* Adjust this value if you want to change the width of the video */
+}
+
+@media (max-width: 1013px) {
+  .nav {
+    display: none;
+  }
+
+  .footer-right-menu{
+    display: none;
+  }
+}
