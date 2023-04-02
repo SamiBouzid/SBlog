@@ -7,7 +7,6 @@ body, h1 {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 348;
   width: 100%;
-  overflow-x: hidden;
 }  
 body a:not(#articlesp2 a) {
   white-space: nowrap;
@@ -146,6 +145,7 @@ footer {
   font-size: 18px;
   padding-bottom: 100px;
 }
+
 #f-logo-nav {
   display: flex;
   justify-content: space-between;
@@ -188,6 +188,9 @@ footer {
 .f-has-submenu{
   font-weight: bold;
 }
+#f-biglist {
+  padding-right: 50px;
+}
 .f-submenu {
   list-style: none;
   padding: 0;
@@ -199,9 +202,6 @@ footer {
 .f-submenu li {
   margin: 0;
   white-space: nowrap; /* to display submenus in 1 line*/
-}
-.footer-menu li:not(:last-child) {
-  margin-right: 90px;
 }
 .f-submenu li:not(:last-child) {
   margin-bottom: 4px;
@@ -215,6 +215,8 @@ footer {
   display: flex;
   align-items: flex-start;
   margin-right: auto;
+  width: 100%;
+  margin-right: 0;
 }
 .footer-bot h2 {
   font-size: 18px;
@@ -427,7 +429,7 @@ footer {
    */
 }
 /*FOOTER*/
-@media (max-width: 1050px) {
+@media (max-width: 980px) {
   .footer-menu, .f-submenu {
   display: block;
   }

@@ -12,7 +12,6 @@ body, h1 {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 348;
   width: 100%;
-  overflow-x: hidden;
 }  
 body a:not(#articlesp2 a) {
   white-space: nowrap;
@@ -144,6 +143,7 @@ footer {
   padding: 100px 25px;
   font-size: 18px;
   padding-bottom: 100px;
+  padding-right: 100px;
 }
 #f-logo-nav {
   display: flex;
@@ -199,8 +199,9 @@ footer {
   margin: 0;
   white-space: nowrap; /* to display submenus in 1 line*/
 }
-.footer-menu li:not(:last-child) {
-  margin-right: 90px;
+
+#f-biglist {
+  padding-right: 50px;
 }
 .f-submenu li:not(:last-child) {
   margin-bottom: 4px;
@@ -352,7 +353,6 @@ footer {
   margin-right: 0px;
   margin-left: 0px;
   padding-right: 0px;
-  white-space: nowrap;
   font-size: 18px;
 }
 .logo-title {
@@ -388,7 +388,6 @@ footer {
   margin-right: 0px;
   margin-left: 0px;
   padding-right: 0px;
-  white-space: nowrap;
   font-size: 18px;
 }
 .xplogo-container a {
@@ -437,7 +436,7 @@ display: inline;
 
 /**********************MEDIA QUERY**********************/
 /* ED-XP-CER */
-@media (max-width: 1100px) {
+@media (max-width: 1250px) {
 #certif h3, #proxp h3 {
   /*font-size: clamp(20px, 4vw, 64px);*/
   margin-top: 100px;
@@ -483,7 +482,7 @@ display: inline;
   */
 }
 /* FOOTER */
-@media (max-width: 1050px) {
+@media (max-width: 980px) {
   .footer-menu, .f-submenu {
   display: block;
   }
@@ -510,5 +509,12 @@ display: inline;
   .introright {
     clear: both;
     position: static;
+  }
+}
+
+/*CERTIF
+@media (max-width: 1100px) {
+  #certif {
+    font-size: 20px;
   }
 }
