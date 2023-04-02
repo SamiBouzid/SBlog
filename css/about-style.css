@@ -449,6 +449,13 @@ display: inline;
     display: none;
   }
 
+  .EduXpCer h3 {
+    border-top: 1px solid black;
+  }
+#no-above-line {
+  border-top: 1px solid transparent;
+}
+
 }
 /*HEADER - CSS*/
 .scroll-to-bottom {
