@@ -17,6 +17,7 @@ body a:not(#articlesp2 a) {
   white-space: nowrap;
 }
 
+
 /********************HEADER********************/
 #wrap {    
   height: 110px;
@@ -511,9 +512,10 @@ display: inline;
   }
 }
 
-/*CERTIF
-@media (max-width: 1100px) {
-  #certif {
-    font-size: 20px;
+/*CERTIF*/
+@media (max-width: 700px) {
+  .cert-desc {
+    margin-top: 5px;
+    font-size: 10px;
   }
 }
