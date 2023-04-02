@@ -415,14 +415,16 @@ footer {
     display: block; /* Show the 'scroll-to-bottom' link */
     top: 46%;
   }
+  /*
   .scroll-to-bottom:hover .VM-only-underline {
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid var(--text-color);
   }
   .scroll-to-bottom::after {
     content: "▾";
     margin-right: 5px;
     font-family: monospace;
   }
+   */
 }
 /*FOOTER*/
 @media (max-width: 1050px) {
