@@ -526,3 +526,10 @@ display: inline;
     font-size: 10px;
   }
 }
+
+/*IMAGE*/
+@media (min-width: 1400px) {
+  .introright {
+    width: 700px;
+  }
+}
