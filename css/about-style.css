@@ -530,6 +530,6 @@ display: inline;
 /*IMAGE*/
 @media (min-width: 1400px) {
   .introright {
-    width: 700px;
+    width: 500px;
   }
 }
