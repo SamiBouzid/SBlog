@@ -144,7 +144,6 @@ footer {
   padding: 100px 25px;
   font-size: 18px;
   padding-bottom: 100px;
-  padding-right: 100px;
 }
 
 #f-logo-nav {
@@ -154,7 +153,6 @@ footer {
 }
 .footer-right-menu {
   justify-content: right;
-  padding-right: 100px;
 }
 /* LOGO */
 #footerlogo img {
