@@ -9,14 +9,13 @@ body, h1 {
   color: #2d712a;
   margin: 0;
   padding: 0;
-  font-family: Helvetica, Arial, sans-serif;
   font-weight: 348;
   width: 100%;
+  font-family: sans-serif;
 }  
 body a:not(#articlesp2 a) {
   white-space: nowrap;
 }
-
 
 /********************HEADER********************/
 #wrap {    
@@ -73,12 +72,12 @@ header {
 }
 .has-submenu::after {
   content: "▾";
-  margin-right: 5px;
+  margin-right: 0px;
   font-family: monospace;
 }
 .has-submenu.active::after {
   content: "▹";
-  margin-right: 5px;
+  margin-right: 0px;
   font-family: monospace;
 }
 .about:hover {
@@ -258,7 +257,13 @@ footer {
   justify-content: center;
 }
 .presleft h1 {
-  font-size: 70px;
+  font-size: 75px;
+  font-weight: 350;
+}
+
+.presleft p {
+margin-top: 0;
+padding-top: 10px;
 }
 
 /***************HOBBIES***************/
@@ -280,9 +285,9 @@ footer {
 .Hobbies h2 {
   margin-top: 0px;
   padding-top: 0px;
-  font-family: 'Cormorant Garamond', serif;
   font-size: 60px;
   font-weight: 200;
+  font-family: 'Cormorant Garamond', serif;
 }
 .Hobbylist {
   list-style: none;
@@ -529,9 +534,16 @@ display: inline;
   }
 }
 
-/*IMAGE*/
-@media (min-width: 1400px) {
+/*INTRO*/
+/*image*/
+@media (min-width: 1450px) {
   .introright {
-    width: 500px;
+    width: 550px;
+  }
+}
+
+@media (min-width: 2150px) {
+  .introright {
+    width: 450px;
   }
 }

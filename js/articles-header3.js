@@ -9,9 +9,9 @@ const headerLinks = document.querySelectorAll('.header a, .header span');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 60) {
-        header.style.backgroundColor = 'black';
+        header.style.backgroundColor = 'white';
         headerLinks.forEach(link => {
-            link.style.color = 'white';
+            link.style.color = 'black';
         });
         logo1.style.opacity = 0;
         logo2.style.opacity = 1;
@@ -26,10 +26,10 @@ window.addEventListener('scroll', () => {
 });
 window.addEventListener('scroll', () => {
     if (window.scrollY > 60) {
-      document.documentElement.style.setProperty('--text-color', 'white');
-      document.documentElement.style.setProperty('--submenu-bg-color', 'black');
+      document.documentElement.style.setProperty('--text-color', 'black');
+      document.documentElement.style.setProperty('--submenu-bg-color', 'white');
     } else {
-      document.documentElement.style.setProperty('--text-color', '#ffc98a');
+      document.documentElement.style.setProperty('--text-color', '#0000FF');
       document.documentElement.style.setProperty('--submenu-bg-color', 'transparent');
     };
 });
