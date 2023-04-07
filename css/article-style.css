@@ -141,7 +141,6 @@
     padding: 100px 25px;
     font-size: 18px;
     padding-bottom: 100px;
-    border: 1px solid #0000FF;
   }
   #f-logo-nav {
     display: flex;
@@ -165,7 +164,6 @@
     justify-content: center;
     margin: 0;
     padding: 0;
-    border: 1px solid #0000FF;
   }
   .footer-menu li {
     margin: 0;
