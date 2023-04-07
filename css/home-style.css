@@ -96,7 +96,7 @@ header {
   margin: 0;
   padding: 0;
   padding-left: 10px;
-  padding-right: 25px;
+  padding-right: 33%;
   margin-top: 26px;
   text-align: left;
   height: auto; 
@@ -173,7 +173,6 @@ footer {
 .footer-menu li {
   margin: 0;
   position: relative;
-  padding-right: 100px;
 }
 .footer-menu a {
   text-decoration: none;

@@ -92,7 +92,7 @@
     margin: 0;
     padding: 0;
     padding-left: 10px;
-    padding-right: 25px;
+    padding-right: 33%;
     margin-top: 26px;
     text-align: left;
     height: auto; 
@@ -138,17 +138,15 @@
   footer {
     display: block;
     align-items: flex-start;
-    padding: 100px 25px;
     font-size: 18px;
-    padding-bottom: 100px;
+    padding: 100px 25px;
   }
   #f-logo-nav {
     display: flex;
     justify-content: space-between;
     width: 100%;
-  }
-  .footer-right-menu {
-    justify-content: right;
+    margin: 0;
+    padding: 0;
   }
   /*LOGO*/
   #footerlogo img {
@@ -168,8 +166,9 @@
   .footer-menu li {
     margin: 0;
     position: relative;
-    padding-right: 100px;
+    padding: 0;
   }
+
   .footer-menu a {
     text-decoration: none;
     color: #0000FF;
@@ -190,7 +189,6 @@
     margin-top: 5px;
     position: absolute;
     left: 0;
-    top: 100%;
   }
   .f-submenu li {
     margin: 0;
@@ -207,7 +205,7 @@
     border-bottom: 1px solid #0000FF;
   }
   .footer-bot {
-    margin-top: 220px;
+    margin-top: 200px;
     border-top: 1px solid #0000FF;
     display: flex;
     align-items: flex-start;
@@ -400,7 +398,7 @@ padding-top: 100px;
     .f-submenu {
       position: static; /* Remove the absolute positioning for the submenu */
     }
-    .footer-menu > li { /* Add space between main menu items */
+    .footer-menu > li:not(:last-child) { /* Add space between main menu items */
       margin-bottom: 100px;
     }
   }

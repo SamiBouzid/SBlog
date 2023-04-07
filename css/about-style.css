@@ -94,7 +94,7 @@ header {
   margin: 0;
   padding: 0;
   padding-left: 10px;
-  padding-right: 25px;
+  padding-right: 33%;
   margin-top: 26px;
   text-align: left;
   height: auto; 
@@ -142,7 +142,6 @@ footer {
   align-items: flex-start;
   padding: 100px 25px;
   font-size: 18px;
-  padding-bottom: 100px;
 }
 #f-logo-nav {
   display: flex;
@@ -169,7 +168,6 @@ footer {
 }
 .footer-menu li {
   position: relative;
-  padding-right: 100px;
   margin: 0;
 }
 .footer-menu a {
@@ -209,7 +207,7 @@ footer {
   border-bottom: 1px solid #2d712a;
 }
 .footer-bot {
-  margin-top: 220px;
+  margin-top: 150px;
   border-top: 1px solid #2d712a;
   display: flex;
   align-items: flex-start;
@@ -473,6 +471,7 @@ display: inline;
   left: 50%; /* Position the link horizontally in the center */
   transform: translate(-50%, -50%); /* Adjust the link position relative to its own size */
 }
+
 /* HEADER*/
 @media (max-width: 980px) {
   .nav {
