@@ -409,3 +409,15 @@ padding-top: 100px;
       margin-bottom: 100px;
     }
   }
+
+  /*TABLE*/
+@media (max-width: 700px) {
+  .my-table {
+    font-size: 12px;
+  }
+}
+@media (max-width: 980px) {
+  .transition p {
+    font-size: calc(16px + 1.5vw);
+  }
+}
