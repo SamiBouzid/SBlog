@@ -10,6 +10,7 @@
 
         <!--STYLE-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../prism/prism.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Literata:wght@300&display=swap" rel="stylesheet">
     </head>
     
@@ -122,18 +123,98 @@
                 <li><b>Diversified Portfolio Construction</b>: Modern Portfolio Theory (MPT).</li>
         </ol>
 
-        <h3>How can I implement Modern Portfolio Theory using Python?</h3>
+        <h3>How do I implement Modern Portfolio Theory using Python?</h3>
         <ol>
             <li>Download historical closing prices for the selected 30 stocks and calculate their daily returns.<br><br></li>
-            <script src="https://gist.github.com/SamiBouzid/b5e52bb87cce151fd0d8302ad82134ef.js"></script>
+            <pre><code class="language-python">
+# Define the tickers and date range
+tickers = ['ABBV', 'GOOGL', 'AAPL', 'ADP', 'LLY', 'FSLR', 'HAL.NS', 'HON', 'IEL.AX', 'INFY', 'JKS', 'LMT', 'MCD', 'MBG.DE', 'MRK', 'MSFT', 'MBLY', 'MRNA', 'NSRGF', 'NEE', 'NVO', 'NVDA', 'PANW', 'RTX', 'SONY', 'TCS.NS', 'TSLA', 'HO.PA', 'VWS.CO', 'WM']
+start_date = "2018-01-01"
+end_date = date.today().strftime("%Y-%m-%d")
+
+# Download the historical closing price
+closing_prices = pd.DataFrame()
+for ticker in tickers:
+    data = yf.download(ticker, start=start_date, end=end_date)
+    closing_prices[ticker] = data["Adj Close"]
+
+# Calculate daily returns
+daily_returns = closing_prices.pct_change()
+                </code></pre>
             <li>Generate 10,000 portfolios with random weights, and calculate their Expected Returns, Volatilities, and Sharpe Ratios.<br><br></li>
-            <script src="https://gist.github.com/SamiBouzid/78fb4fb9d6b773fc6c3aa0a594450277.js"></script>
+            <pre><code class="language-python">
+# Function to calculate portfolio stats
+def portfolio_stats(tickers, weights, daily_returns):
+    # Annualized return
+    annualized_returns = ((1 + daily_returns.mean()) ** 252) - 1
+    
+    # Portfolio return
+    port_return = np.dot(weights, annualized_returns)
+
+    # Portfolio variance
+    cov_matrix = daily_returns.cov() * 252
+    port_variance = np.dot(weights.T, np.dot(cov_matrix, weights))
+
+    # Portfolio volatility (standard deviation)
+    port_volatility = np.sqrt(port_variance)
+
+    # Portfolio Sharpe ratio
+    risk_free_rate = 0.02
+    port_sharpe_ratio = (port_return - risk_free_rate) / port_volatility
+
+    return port_return, port_volatility, port_sharpe_ratio
+
+# Generate 10000 random portfolios with different weights
+num_portfolios = 10000
+all_weights = []
+port_returns, port_volatilities, port_sharpe_ratios = [], [], []
+
+min_weight = 0.02
+
+for _ in range(num_portfolios):
+    random_weights = np.random.random(len(tickers))
+    random_weights = min_weight + (1 - min_weight * len(tickers)) * random_weights / np.sum(random_weights)
+    all_weights.append(random_weights)
+    ret, vol, sharpe = portfolio_stats(tickers, random_weights, daily_returns)
+    port_returns.append(ret)
+    port_volatilities.append(vol)
+    port_sharpe_ratios.append(sharpe)
+            </code></pre>
             <li>Plot the portfolios and highlight the top 10 portfolios with the highest Sharpe Ratio.<br><br></li>
             <h4 class="title-art-pic">Efficient Frontier - Random Portfolios and top 10 Portfolios</h4>
             <img src="../media/Images/articles/2-4.png" class="half90-pic" alt="Efficient Frontier">
             <p class="subtitle-pic">Screenshot of 10,000 randomly generated portfolios visualized using Matplotlib in Python</p>
-            <li>Extract in an Excel file the weights of the top Portfolios and chose among them the one that suits your risk-return preference.<br><br></li>
-            <h4 class="title-art-pic">My Efficient Portfolio</h4>
+            <pre><code class="language-python">
+# Find the indices of the top10 portfolios with the highest Sharpe ratios
+top10_indices = np.argsort(port_sharpe_ratios)[-10:]
+
+# Extract the corresponding weights, returns, volatilities, and Sharpe ratios
+top10_weights = [all_weights[i] for i in top10_indices]
+top10_returns = [port_returns[i] for i in top10_indices]
+top10_volatilities = [port_volatilities[i] for i in top10_indices]
+top10_sharpe_ratios = [port_sharpe_ratios[i] for i in top10_indices]
+
+# Plot the random portfolios
+plt.figure(figsize=(12, 8))
+plt.scatter(port_volatilities, port_returns, c=port_sharpe_ratios, cmap='viridis', marker='o', s=10, alpha=0.7)
+plt.colorbar(label='Sharpe Ratio')
+plt.xlabel('Volatility')
+plt.ylabel('Return')
+
+# Plot the top10 portfolios (excluding the number one portfolio) + Highest sharpe ratio
+plt.scatter(np.array(port_volatilities)[top10_indices[:-1]], np.array(port_returns)[top10_indices[:-1]], c='red', marker='o', s=100, alpha=1.0, label='top 10 Portfolios')
+plt.scatter(port_volatilities[top10_indices[-1]], port_returns[top10_indices[-1]], c='blue', marker='*', s=200, alpha=1.0, label='Portfolio with the highest Sharpe Ratio')
+
+# Add labels and legend
+plt.title('Efficient Frontier - Random Portfolios and top 10 Portfolios')
+plt.legend()
+
+# Show the plot
+plt.show()
+</code></pre>
+            
+            <li>Extract in an Excel file the weights of the top 10 Portfolios and chose one among them (depending risk-return preference).<br><br></li>
+            <h4 class="title-art-pic">Efficient Portfolio that I have chosen</h4>
             <img src="../media/Images/articles/2-5.png" class="half60-pic" alt="Portfolio Weights">
             <p class="subtitle-pic">Optimal Portfolio Weights</p>
         </ol>
@@ -207,9 +288,9 @@
                    </li>
                    <li id="f-biglist"> <a class="f-has-submenu"> About me</a>
                        <ul class ="f-submenu">
-                           <li> <a href ="SamiBouzid.html">Sami Bouzid</a></li>
+                           <li> <a href ="../SamiBouzid.html">Sami Bouzid</a></li>
                            <li> <a href ="https://www.linkedin.com/in/samibouzid/">Linkedin</a></li>
-                           <li> <a href ="#">Contact</a></li>
+                           <li> <a href ="../contact.html">Contact</a></li>
                        </ul>
                        </li>
                        <li id="f-biglist"> <a class="f-has-submenu"></a>
@@ -222,7 +303,7 @@
                    <a href="#"> <span> Back to top</span> ▴</a>
                </div>
        </footer>
-
+    <script src="../prism/prism.js"></script>
     </body>
 
 </html>

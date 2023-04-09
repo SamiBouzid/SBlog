@@ -1,0 +1,546 @@
+/******************** TOOLS ********************/
+.TEST {
+  border: 1px solid blue;
+}
+
+/******************** BODY ********************/
+body, h1 {
+  background-color: #fee6ff;
+  color: #2d712a;
+  margin: 0;
+  padding: 0;
+  font-weight: 348;
+  width: 100%;
+  font-family: sans-serif;
+}  
+body a:not(#articlesp2 a) {
+  white-space: nowrap;
+}
+
+/********************HEADER********************/
+#wrap {    
+  height: 110px;
+}
+.header-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+/* HEADER */
+header {
+  position: fixed;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding: 0 25px;
+  font-size: 19px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background-color 0.1s;
+}
+/* LOGO */
+.logo {
+  width: 80px;
+  margin-right: 0px;
+  margin-left: -15px;
+  transition: opacity 0.1s;
+  position: absolute;
+  top: 46%;
+  transform: translateY(-50%);
+}
+/* NAVIGATION */
+.nav {
+  list-style-type: none;
+  display: flex;
+  margin-left: 40px;
+}
+.nav li {
+  display: inline;
+  padding: 10px;
+  margin: 15px;
+  margin-left: 0;
+  position: relative;
+}
+.nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  display: inline-block; 
+}
+.has-submenu::after {
+  content: "▾";
+  margin-right: 0px;
+  font-family: monospace;
+}
+.has-submenu.active::after {
+  content: "▹";
+  margin-right: 0px;
+  font-family: monospace;
+}
+.about:hover {
+  border-bottom: 1px solid #2d712a;
+}
+.has-submenu:hover .link-text, .has-submenu.active .link-text {
+  border-bottom: 1px solid #2d712a;
+}
+.submenu a:hover {
+  border-bottom: 1px solid #2d712a;
+}
+.submenu {
+  display: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 33%;
+  margin-top: 26px;
+  text-align: left;
+  height: auto; 
+  width: 148px;
+  position: absolute;
+  background-color: var(--submenu-bg-color);
+  transition: background-color 0.1s;
+  left: -0px;
+}
+.submenu li {
+  padding: 0;
+  margin: 0;
+}
+.submenu li a {
+  margin-bottom: 8px;
+  border-bottom: 1px solid transparent;
+}
+/* SEARCH*/
+.search {
+  text-align: right;
+}
+.search a {
+  display: block;
+  text-decoration: none;
+  color: var(--text-color);
+}
+:root {
+  --text-color: #2d712a;
+  --text-color-scrolled: black;
+  --submenu-bg-color: transparent;
+  --submenu-bg-color-scrolled: white;
+}
+.about:hover,
+.has-submenu:hover .link-text,
+.has-submenu.active .link-text,
+.submenu a:hover,
+.search a:hover {
+  border-bottom: 1px solid var(--text-color);
+}
+
+/********************FOOTER********************/
+/* FOOTER */
+footer {
+  display: block;
+  align-items: flex-start;
+  padding: 100px 25px;
+  font-size: 18px;
+}
+#f-logo-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.footer-right-menu {
+  justify-content: right;
+}
+/*LOGO*/
+#footerlogo img {
+  width: 80px;
+  margin-top: -14px; /* move the logo up by 10px */
+  margin-left: -15px;
+  flex: 1;
+}
+/* MENU */
+.footer-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.footer-menu li {
+  position: relative;
+  margin: 0;
+}
+.footer-menu a {
+  text-decoration: none;
+  color: #2d712a;
+}
+/* SUBMENU */
+.f-has-submenu:hover .f-submenu { /* fix submenu disappearing issue */
+  display: block;
+}
+.f-submenu li { /* fix submenu alignment issue */
+  text-align: left;
+}
+.f-has-submenu{
+  font-weight: bold;
+}
+.f-submenu {
+  list-style: none;
+  padding: 0;
+  margin-top: 5px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+.f-submenu li {
+  margin: 0;
+  white-space: nowrap; /* to display submenus in 1 line*/
+}
+
+#f-biglist {
+  padding-right: 50px;
+}
+.f-submenu li:not(:last-child) {
+  margin-bottom: 4px;
+}
+.f-submenu li a:hover {
+  border-bottom: 1px solid #2d712a;
+}
+.footer-bot {
+  margin-top: 150px;
+  border-top: 1px solid #2d712a;
+  display: flex;
+  align-items: flex-start;
+  margin-right: auto;
+}
+.footer-bot h2 {
+  font-size: 18px;
+  font-weight: 350;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 5px;
+  margin-right: 23%;
+}
+.footer-bot a {
+  text-decoration: none;
+  color: #2d712a;
+  margin-top: 5px;
+}
+.footer-bot a span:hover {
+  border-bottom: 1px solid #2d712a;
+}
+
+/***************INTRO***************/
+.Presentation {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 300px;
+  margin-bottom: 0px;
+  font-weight: 348;
+  font-size: 28px;
+  padding: 0 25px;
+}
+.presleft {
+  width: calc(50% - 20px);
+}
+.introright {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(50% - 20px);
+  display: flex;
+  justify-content: center;
+}
+.presleft h1 {
+  font-size: 75px;
+  font-weight: 350;
+}
+
+.presleft p {
+margin-top: 0;
+padding-top: 10px;
+}
+
+/***************HOBBIES***************/
+.Hobbies {
+  margin-top: 150px;
+  background-color: white;
+  color: black;
+  padding: 0 25px;
+  margin-top: 80px;
+  border-top: 1px solid transparent;
+  padding-bottom: 50px;
+}
+#block-hobbies {
+  margin-top: 100px;
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+.Hobbies h2 {
+  margin-top: 0px;
+  padding-top: 0px;
+  font-size: 60px;
+  font-weight: 200;
+  font-family: 'Cormorant Garamond', serif;
+}
+.Hobbylist {
+  list-style: none;
+  margin-top: 0px;
+  padding-top: 10px;
+  font-size: 20px;
+  margin-right: 0;
+  width: 45%;
+} 
+.Hobby-sublist {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.Hobbies ul li {
+  padding-bottom: 20px;
+}
+#volunt-list li{
+  padding: 0;
+}
+
+/******************ED-XP-CE*******************/
+.EduXpCer {
+  background-color: white;
+  color: black;
+  padding: 0 25px;
+  border-top: 1px solid transparent;
+  padding-bottom: 100px;
+}
+#block-EduXpCer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid black;
+}
+.EduXpCer h3 {
+  margin: 0;
+  padding-top: 0px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 200;
+  font-size: 64px;
+  margin-bottom: 75px;
+}
+.EXCcol {
+  flex: 1;
+  position: relative;
+  padding: 0 10px;
+}
+.EXCcol:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  height: 95%;
+  width: 1px;
+  right: 0px;
+  background-color: black;
+}
+/***EDU***/
+.edulogo-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+.education-logo {
+  height: 60px; /* Adjust the width as needed */
+  margin-bottom: 25px;
+}
+.school-item{
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-right: 0px;
+  font-size: 18px;
+}
+.logo-title {
+  display: inline;
+  margin-bottom: 0;
+}
+.image-container:hover .logo-title {
+  border-bottom: 1px solid black;
+}
+.school-item p {
+  margin-top: 3px;
+  margin-bottom: 0;
+}
+.edulogo-container a {
+  text-decoration: none;
+  color: black;
+}
+/***XP***/
+.xplogo-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  padding: 0 10px;
+}
+.xp-logo {
+  height: 66px; /* Adjust the width as needed */
+  margin-bottom: 23px;
+  vertical-align: middle; /* Add this property */
+}
+.xp-item{
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-right: 0px;
+  font-size: 18px;
+}
+.xplogo-container a {
+  text-decoration: none;
+  color: black;
+}
+.xp-item p {
+  margin-top: 3px;
+  margin-bottom: 0;
+}
+.xp-title {
+display: inline;
+  margin-top: 5px;
+}
+.image-container:hover .xp-title {
+  border-bottom: 1px solid black;
+}
+/***CERTIF***/
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.cert-item {
+  text-decoration: none;
+  text-align: center;
+}
+.cert-logo {
+  max-width: 100%;
+  height: 80px;
+}
+.cert-desc {
+  margin-top: 5px;
+  font-size: 14px;
+}
+.cert-grid img {
+  opacity: 0.8;
+}
+.cert-item:hover .cert-logo{
+  opacity: 1; /* Change this value to the desired opacity level */
+}
+.cert-grid a {
+  text-decoration: none;
+  color: black;
+}
+
+/**********************MEDIA QUERY**********************/
+/* ED-XP-CER */
+@media (max-width: 1250px) {
+#certif h3, #proxp h3 {
+  /*font-size: clamp(20px, 4vw, 64px);*/
+  margin-top: 100px;
+  }
+#block-EduXpCer {
+    display: block;
+  }
+
+  .EXCcol:not(:last-child)::after {
+    display: none;
+  }
+
+  .EduXpCer h3 {
+    border-top: 1px solid black;
+  }
+#no-above-line {
+  border-top: 1px solid transparent;
+}
+
+}
+/*HEADER - CSS*/
+.scroll-to-bottom {
+  display: none; /* Hide the 'scroll-to-bottom' link by default */
+  text-decoration: none;
+  color: var(--text-color);
+  display: none; /* Hide the 'scroll-to-bottom' link by default */
+  position: absolute; /* Set the link position to absolute */
+  top: 50%; /* Position the link vertically in the center */
+  left: 50%; /* Position the link horizontally in the center */
+  transform: translate(-50%, -50%); /* Adjust the link position relative to its own size */
+}
+
+/* HEADER*/
+@media (max-width: 980px) {
+  .nav {
+    display: none; /* Hide all list items */
+  }
+  .scroll-to-bottom {
+    display: block; /* Show the 'scroll-to-bottom' link */
+    top: 46%;
+  }
+  /*
+  .scroll-to-bottom:hover .VM-only-underline {
+    border-bottom: 1px solid var(--text-color);
+  }
+  .scroll-to-bottom::after {
+    content: "▾";
+    margin-right: 5px;
+    font-family: monospace;
+  }
+  */
+}
+/* FOOTER */
+@media (max-width: 980px) {
+  .footer-menu, .f-submenu {
+  display: block;
+  }
+  .f-submenu {
+    position: static; /* Remove the absolute positioning for the submenu */
+  }
+  .footer-menu > li { /* Add space between main menu items */
+    margin-bottom: 100px;
+  }
+}
+/*PRESENTATION*/
+@media (max-width: 980px) {
+  .Presentation {
+    display: block;
+  }
+
+  .presleft,
+  .introright {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .introright {
+    clear: both;
+    position: static;
+  }
+}
+
+/*CERTIF*/
+@media (max-width: 700px) {
+  .cert-desc {
+    margin-top: 5px;
+    font-size: 10px;
+  }
+}
+
+/*INTRO*/
+/*image*/
+@media (min-width: 1450px) {
+  .introright {
+    width: 550px;
+  }
+}
+
+@media (min-width: 2150px) {
+  .introright {
+    width: 450px;
+  }
+}
