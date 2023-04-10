@@ -1,11 +1,11 @@
-//CODE JAVA POUR LE MENU DEROULANT --> Effet ON CLICK
+//CODE JAVA POUR la transition couleur
 
 document.addEventListener('DOMContentLoaded', function() {
 
 const header = document.getElementById('header');
 const logo1 = document.getElementById('logo1');
 const logo2 = document.getElementById('logo2');
-const headerLinks = document.querySelectorAll('.header a, .header span');
+const headerLinks = document.querySelectorAll('.header a, .header span, .search a,  .about');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 60) {
@@ -29,7 +29,7 @@ window.addEventListener('scroll', () => {
       document.documentElement.style.setProperty('--text-color', 'black');
       document.documentElement.style.setProperty('--submenu-bg-color', 'white');
     } else {
-      document.documentElement.style.setProperty('--text-color', '#0000FF');
+      document.documentElement.style.setProperty('--text-color', '#833600');
       document.documentElement.style.setProperty('--submenu-bg-color', 'transparent');
     };
 });

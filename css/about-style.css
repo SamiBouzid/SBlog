@@ -17,6 +17,41 @@ body a:not(#articlesp2 a) {
   white-space: nowrap;
 }
 
+/* HIGHLIGHITNG */
+.header-logo img::selection,
+.has-submenu::selection,
+.has-submenu span::selection,
+.submenu a::selection,
+.about::selection,
+.search a::selection,
+#footerlogo img::selection,
+img::selection,
+br::selection
+{
+  background-color: transparent;
+}
+.presleft h1::selection,
+.presleft p::selection,
+.f-submenu a::selection,
+.footer-bot h2::selection,
+.footer-bot a::selection,
+.f-has-submenu::selection,
+.footer-bot span::selection{
+  background-color: #2d712a;
+  color:#fee6ff;
+}
+h2::selection,
+h3::selection,
+.Hobbylist li::selection,
+.Hobbylist b::selection,
+.EduXpCer p::selection,
+h4::selection,
+.cert-item span::selection
+ {
+  background-color: black;
+  color: white;
+}
+
 /********************HEADER********************/
 #wrap {    
   height: 110px;
@@ -40,14 +75,13 @@ header {
   left: 0;
   right: 0;
   z-index: 100;
-  transition: background-color 0.1s;
 }
 /* LOGO */
 .logo {
   width: 80px;
   margin-right: 0px;
   margin-left: -15px;
-  transition: opacity 0.1s;
+  transition: opacity 0.3s;
   position: absolute;
   top: 46%;
   transform: translateY(-50%);
@@ -74,20 +108,25 @@ header {
   content: "▾";
   margin-right: 0px;
   font-family: monospace;
+  transition: color 0.3s ease-out;
 }
 .has-submenu.active::after {
   content: "▹";
   margin-right: 0px;
+  transition: color 0.3s ease-out;
   font-family: monospace;
 }
 .about:hover {
   border-bottom: 1px solid #2d712a;
+  transition: border-color 0.3s ease-out;
 }
 .has-submenu:hover .link-text, .has-submenu.active .link-text {
   border-bottom: 1px solid #2d712a;
+  transition: border-color 0.3s ease-out;
 }
 .submenu a:hover {
   border-bottom: 1px solid #2d712a;
+  transition: border-color 0.3s ease-out;
 }
 .submenu {
   display: none;
@@ -101,7 +140,7 @@ header {
   width: 148px;
   position: absolute;
   background-color: var(--submenu-bg-color);
-  transition: background-color 0.1s;
+  transition: background-color 0.3s ease-out;
   left: -0px;
 }
 .submenu li {
@@ -133,6 +172,18 @@ header {
 .submenu a:hover,
 .search a:hover {
   border-bottom: 1px solid var(--text-color);
+  transition: border-color 0.3s ease-out;
+}
+
+/*transition */
+#header, .submenu {
+  transition: background-color 0.3s ease-out;
+}
+.header a, .header span {
+  transition: color 0.3s ease-out;
+}
+#logo1, #logo2 {
+  transition: opacity 0.3s ease-out;
 }
 
 /********************FOOTER********************/

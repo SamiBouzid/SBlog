@@ -1,5 +1,4 @@
 //CODE JAVA POUR la transition couleur
-
 document.addEventListener('DOMContentLoaded', function() {
 
 const header = document.getElementById('header');
@@ -29,7 +28,7 @@ window.addEventListener('scroll', () => {
       document.documentElement.style.setProperty('--text-color', 'black');
       document.documentElement.style.setProperty('--submenu-bg-color', 'white');
     } else {
-      document.documentElement.style.setProperty('--text-color', '#2d712a');
+      document.documentElement.style.setProperty('--text-color', '#0000FF');
       document.documentElement.style.setProperty('--submenu-bg-color', 'transparent');
     };
 });

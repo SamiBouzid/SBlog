@@ -5,8 +5,8 @@
 
 /******************** BODY ********************/
 body, h1 {
-  background-color: #fee6ff;
-  color: #2d712a;
+  background-color: #CAFFFF;;
+  color: #833600;
   margin: 0;
   padding: 0;
   font-weight: 348;
@@ -15,6 +15,49 @@ body, h1 {
 }  
 body a:not(#articlesp2 a) {
   white-space: nowrap;
+}
+
+.right a {
+  text-decoration: none;
+  color: #833600;
+  border-bottom: 1px solid #833600;
+}
+
+.right a:hover {
+  border-bottom: 1px solid 	rgb(131, 54, 0,0.3);
+}
+
+
+/* HIGHLIGHITNG */
+.header-logo img::selection,
+.has-submenu::selection,
+.has-submenu span::selection,
+.submenu a::selection,
+.about::selection,
+.search a::selection,
+#footerlogo img::selection,
+img::selection,
+br::selection
+{
+  background-color: transparent;
+
+}
+.left h1::selection,
+.left p::selection,
+.left b::selection,
+.f-submenu a::selection,
+.footer-bot h2::selection,
+.footer-bot a::selection,
+.f-has-submenu::selection,
+.footer-bot span::selection{
+  background-color: #833600;
+  color:#CAFFFF;
+}
+
+.NIGHTCORE
+ {
+  background-color: black;
+  color: white;
 }
 
 /********************HEADER********************/
@@ -40,14 +83,13 @@ header {
   left: 0;
   right: 0;
   z-index: 100;
-  transition: background-color 0.1s;
 }
 /* LOGO */
 .logo {
   width: 80px;
   margin-right: 0px;
   margin-left: -15px;
-  transition: opacity 0.1s;
+  transition: opacity 0.3s;
   position: absolute;
   top: 46%;
   transform: translateY(-50%);
@@ -64,30 +106,37 @@ header {
   margin: 15px;
   margin-left: 0;
   position: relative;
+  transition: color 0.3s ease-out;
 }
 .nav a {
   text-decoration: none;
   color: var(--text-color);
   display: inline-block; 
+  transition: color 0.3s ease-out;
 }
 .has-submenu::after {
   content: "▾";
   margin-right: 0px;
   font-family: monospace;
+  transition: color 0.3s ease-out;
 }
 .has-submenu.active::after {
   content: "▹";
   margin-right: 0px;
   font-family: monospace;
+  transition: color 0.3s ease-out;
 }
 .about:hover {
-  border-bottom: 1px solid #2d712a;
+  border-bottom: 1px solid #833600;
+  transition: border-color 0.3s ease-out;
 }
 .has-submenu:hover .link-text, .has-submenu.active .link-text {
-  border-bottom: 1px solid #2d712a;
+  border-bottom: 1px solid #833600;
+  transition: border-color 0.3s ease-out;
 }
 .submenu a:hover {
-  border-bottom: 1px solid #2d712a;
+  border-bottom: 1px solid #833600;
+  transition: border-color 0.3s ease-out;
 }
 .submenu {
   display: none;
@@ -101,7 +150,6 @@ header {
   width: 148px;
   position: absolute;
   background-color: var(--submenu-bg-color);
-  transition: background-color 0.1s;
   left: -0px;
 }
 .submenu li {
@@ -111,6 +159,7 @@ header {
 .submenu li a {
   margin-bottom: 8px;
   border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease-out;
 }
 /* SEARCH*/
 .search {
@@ -122,7 +171,7 @@ header {
   color: var(--text-color);
 }
 :root {
-  --text-color: #2d712a;
+  --text-color: #833600;
   --text-color-scrolled: black;
   --submenu-bg-color: transparent;
   --submenu-bg-color-scrolled: white;
@@ -133,6 +182,18 @@ header {
 .submenu a:hover,
 .search a:hover {
   border-bottom: 1px solid var(--text-color);
+  transition: border-color 0.3s ease-out;
+}
+
+/*transition */
+#header, .submenu {
+  transition: background-color 0.3s ease-out;
+}
+.header a, .header span, .about {
+  transition: color 0.3s ease-out;
+}
+#logo1, #logo2 {
+  transition: opacity 0.3s ease-out;
 }
 
 /********************FOOTER********************/
@@ -172,7 +233,7 @@ footer {
 }
 .footer-menu a {
   text-decoration: none;
-  color: #2d712a;
+  color: #833600;
 }
 /* SUBMENU */
 .f-has-submenu:hover .f-submenu { /* fix submenu disappearing issue */
@@ -204,11 +265,11 @@ footer {
   margin-bottom: 4px;
 }
 .f-submenu li a:hover {
-  border-bottom: 1px solid #2d712a;
+  border-bottom: 1px solid #833600;
 }
 .footer-bot {
   margin-top: 150px;
-  border-top: 1px solid #2d712a;
+  border-top: 1px solid #833600;
   display: flex;
   align-items: flex-start;
   margin-right: auto;
@@ -222,244 +283,69 @@ footer {
 }
 .footer-bot a {
   text-decoration: none;
-  color: #2d712a;
+  color: #833600;
   margin-top: 5px;
 }
 .footer-bot a span:hover {
-  border-bottom: 1px solid #2d712a;
+  border-bottom: 1px solid #833600;
 }
 
-/***************INTRO***************/
-.Presentation {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 300px;
-  margin-bottom: 0px;
+/******************CONTACT**********************/
+.contact {
+  padding: 0 25px;
+  padding-top: 300px;
+  padding-bottom: 50px;
   font-weight: 348;
   font-size: 28px;
-  padding: 0 25px;
-}
-.presleft {
-  width: calc(50% - 20px);
-}
-.introright {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: calc(50% - 20px);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
-.presleft h1 {
+.contact h1 {
+  padding: 0;
+  margin: 0;
   font-size: 75px;
   font-weight: 350;
 }
-
-.presleft p {
-margin-top: 0;
-padding-top: 10px;
-}
-
-/***************HOBBIES***************/
-.Hobbies {
-  margin-top: 150px;
-  background-color: white;
-  color: black;
-  padding: 0 25px;
-  margin-top: 80px;
-  border-top: 1px solid transparent;
-  padding-bottom: 50px;
-}
-#block-hobbies {
-  margin-top: 100px;
-  border-top: 1px solid black;
-  display: flex;
-  justify-content: space-between;
-}
-.Hobbies h2 {
-  margin-top: 0px;
-  padding-top: 0px;
-  font-size: 60px;
-  font-weight: 200;
-  font-family: 'Cormorant Garamond', serif;
-}
-.Hobbylist {
-  list-style: none;
-  margin-top: 0px;
-  padding-top: 10px;
-  font-size: 20px;
-  margin-right: 0;
-  width: 45%;
-} 
-.Hobby-sublist {
-  width: 100%;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.Hobbies ul li {
-  padding-bottom: 20px;
-}
-#volunt-list li{
-  padding: 0;
-}
-
-/******************ED-XP-CE*******************/
-.EduXpCer {
-  background-color: white;
-  color: black;
-  padding: 0 25px;
-  border-top: 1px solid transparent;
-  padding-bottom: 100px;
-}
-#block-EduXpCer {
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid black;
-}
-.EduXpCer h3 {
-  margin: 0;
-  padding-top: 0px;
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 200;
-  font-size: 64px;
-  margin-bottom: 75px;
-}
-.EXCcol {
+/* styles.css */
+.left {
   flex: 1;
+  padding-right: 100px;
+}
+.right {
+  width: 50%;
+}
+/* IMG SLIDER */
+.image-slider {
   position: relative;
-  padding: 0 10px;
+  width: 100%;
+  /* Add these lines */
+  height: 0;
+  padding-bottom: 75%; /* Adjust this percentage based on the aspect ratio of your images */
+  overflow: hidden;
 }
-.EXCcol:not(:last-child)::after {
-  content: "";
+.image-slider img {
   position: absolute;
-  top: 15px;
-  height: 95%;
-  width: 1px;
-  right: 0px;
-  background-color: black;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s;
 }
-/***EDU***/
-.edulogo-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-right: 10px;
+.image-slider img:first-child {
+  opacity: 1;
 }
-.education-logo {
-  height: 60px; /* Adjust the width as needed */
-  margin-bottom: 25px;
+
+
+/****************** FORM **************/
+.form {
+  background-color: white;
+  padding-bottom: 200px;
 }
-.school-item{
-  margin-right: 0px;
-  margin-left: 0px;
-  padding-right: 0px;
-  font-size: 18px;
-}
-.logo-title {
-  display: inline;
-  margin-bottom: 0;
-}
-.image-container:hover .logo-title {
-  border-bottom: 1px solid black;
-}
-.school-item p {
-  margin-top: 3px;
-  margin-bottom: 0;
-}
-.edulogo-container a {
-  text-decoration: none;
-  color: black;
-}
-/***XP***/
-.xplogo-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0;
-  margin: 0;
-  padding: 0 10px;
-}
-.xp-logo {
-  height: 66px; /* Adjust the width as needed */
-  margin-bottom: 23px;
-  vertical-align: middle; /* Add this property */
-}
-.xp-item{
-  margin-right: 0px;
-  margin-left: 0px;
-  padding-right: 0px;
-  font-size: 18px;
-}
-.xplogo-container a {
-  text-decoration: none;
-  color: black;
-}
-.xp-item p {
-  margin-top: 3px;
-  margin-bottom: 0;
-}
-.xp-title {
-display: inline;
-  margin-top: 5px;
-}
-.image-container:hover .xp-title {
-  border-bottom: 1px solid black;
-}
-/***CERTIF***/
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-}
-.cert-item {
-  text-decoration: none;
-  text-align: center;
-}
-.cert-logo {
-  max-width: 100%;
-  height: 80px;
-}
-.cert-desc {
-  margin-top: 5px;
-  font-size: 14px;
-}
-.cert-grid img {
-  opacity: 0.8;
-}
-.cert-item:hover .cert-logo{
-  opacity: 1; /* Change this value to the desired opacity level */
-}
-.cert-grid a {
-  text-decoration: none;
-  color: black;
-}
+
 
 /**********************MEDIA QUERY**********************/
-/* ED-XP-CER */
-@media (max-width: 1250px) {
-#certif h3, #proxp h3 {
-  /*font-size: clamp(20px, 4vw, 64px);*/
-  margin-top: 100px;
-  }
-#block-EduXpCer {
-    display: block;
-  }
-
-  .EXCcol:not(:last-child)::after {
-    display: none;
-  }
-
-  .EduXpCer h3 {
-    border-top: 1px solid black;
-  }
-#no-above-line {
-  border-top: 1px solid transparent;
-}
-
-}
 /*HEADER - CSS*/
 .scroll-to-bottom {
   display: none; /* Hide the 'scroll-to-bottom' link by default */
@@ -504,43 +390,25 @@ display: inline;
     margin-bottom: 100px;
   }
 }
-/*PRESENTATION*/
+
+/*CONTACT*/
 @media (max-width: 980px) {
-  .Presentation {
-    display: block;
-  }
-
-  .presleft,
-  .introright {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .introright {
-    clear: both;
-    position: static;
-  }
+  .contact {
+  display: block;
 }
-
-/*CERTIF*/
-@media (max-width: 700px) {
-  .cert-desc {
-    margin-top: 5px;
-    font-size: 10px;
-  }
+.right {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }
-
-/*INTRO*/
-/*image*/
-@media (min-width: 1450px) {
-  .introright {
-    width: 550px;
-  }
+.contact h1 {
+  font-size: 64px;
 }
-
-@media (min-width: 2150px) {
-  .introright {
-    width: 450px;
-  }
+.left, .right {
+  display: block;
+  width: 100%;
+}
+.right {
+  padding: 50px 0;
+}
 }
