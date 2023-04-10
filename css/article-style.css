@@ -121,15 +121,12 @@ td::selection,
   }
   .about:hover {
     border-bottom: 1px solid #0000FF;
-    transition: border-color 0.3s ease-out;
   }
   .has-submenu:hover .link-text, .has-submenu.active .link-text {
     border-bottom: 1px solid #0000FF;
-    transition: border-color 0.3s ease-out;
   }
   .submenu a:hover {
     border-bottom: 1px solid #0000FF;
-    transition: border-color 0.3s ease-out;
   }
   .submenu {
     display: none;
@@ -152,7 +149,6 @@ td::selection,
   .submenu li a {
     margin-bottom: 8px;
     border-bottom: 1px solid transparent;
-    transition: border-color 0.3s ease-out;
   }
   /* SEARCH*/
   .search {
@@ -177,7 +173,6 @@ td::selection,
   .submenu a:hover,
   .search a:hover {
     border-bottom: 1px solid var(--text-color);
-    transition: border-color 0.3s ease-out;
   }
   
 /*transition */

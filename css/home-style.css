@@ -116,15 +116,12 @@ header {
 }
 .about:hover {
   border-bottom: 1px solid #ffc98a;
-  transition: border-color 0.3s ease-out;
 }
 .has-submenu:hover .link-text, .has-submenu.active .link-text {
   border-bottom: 1px solid #ffc98a;
-  transition: border-color 0.3s ease-out;
 }
 .submenu a:hover {
   border-bottom: 1px solid #ffc98a;
-  transition: border-color 0.3s ease-out;
 }
 .submenu {
   display: none;
@@ -170,7 +167,6 @@ header {
 .submenu a:hover,
 .search a:hover {
   border-bottom: 1px solid var(--text-color);
-  transition: border-color 0.3s ease-out;
 }
 
 /*transition */
@@ -278,6 +274,13 @@ footer {
 }
 .footer-bot a span:hover {
   border-bottom: 1px solid #ffc98a;
+}
+
+.foot-pyr {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  top: 100px;
 }
 
 /********************INTRO********************/
