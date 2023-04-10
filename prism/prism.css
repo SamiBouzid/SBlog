@@ -5,7 +5,7 @@ code[class*=language-],pre[class*=language-]{color:#fff;background:0 0;font-fami
 pre[class*=language-] {
     /* other properties */
     border-radius: 0; /* Remove rounded corners */
-    border: 10px solid black; /* Adjust the border thickness and color */
+    border: 2px solid black; /* Adjust the border thickness and color */
     font-size: 15px;
     margin: 0;
     padding-top: 0;

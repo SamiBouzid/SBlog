@@ -150,20 +150,20 @@
                        </div>
                </footer>
 
-       <script>
-        const images = document.querySelectorAll(".image-slider img");
-        let currentIndex = 0;
-      
-        function changeImage() {
-          images.forEach((img, index) => {
-            img.style.opacity = index === currentIndex ? 1 : 0;
-          });
-      
-          currentIndex = (currentIndex + 1) % images.length;
-        }
-      
-        setInterval(changeImage, 5000);
-      </script>
-      
+               <script>
+                const images = document.querySelectorAll(".image-slider img");
+                let currentIndex = 0;
+              
+                function changeImage() {
+                  images.forEach((img, index) => {
+                    img.style.opacity = index === currentIndex ? 1 : 0;
+                  });
+              
+                  currentIndex = (currentIndex + 1) % images.length;
+                }
+              
+                changeImage(); // Call the function once before setting the interval
+                setInterval(changeImage, 5000);
+              </script>
     <body>
 </html>

@@ -144,7 +144,7 @@ header {
   padding: 0;
   padding-left: 10px;
   padding-right: 33%;
-  margin-top: 26px;
+  margin-top: 29px;
   text-align: left;
   height: auto; 
   width: 148px;
@@ -407,6 +407,7 @@ footer {
 .left, .right {
   display: block;
   width: 100%;
+  padding-right: 0;
 }
 .right {
   padding: 50px 0;
