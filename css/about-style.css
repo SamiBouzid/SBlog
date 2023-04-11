@@ -36,7 +36,8 @@ br::selection
 .footer-bot h2::selection,
 .footer-bot a::selection,
 .f-has-submenu::selection,
-.footer-bot span::selection{
+.footer-bot span::selection,
+.footer-bot b::selection{
   background-color: #2d712a;
   color:#fee6ff;
 }
@@ -131,7 +132,7 @@ header {
   padding: 0;
   padding-left: 10px;
   padding-right: 33%;
-  margin-top: 29px;
+  margin-top: 28px;
   text-align: left;
   height: auto; 
   width: 148px;
@@ -189,6 +190,7 @@ footer {
   align-items: flex-start;
   padding: 100px 25px;
   font-size: 18px;
+  padding-bottom: 0;
 }
 #f-logo-nav {
   display: flex;
@@ -254,11 +256,13 @@ footer {
   border-bottom: 1px solid #2d712a;
 }
 .footer-bot {
-  margin-top: 150px;
+  margin-top: 220px;
   border-top: 1px solid #2d712a;
   display: flex;
   align-items: flex-start;
   margin-right: auto;
+  width: 100%;
+  margin-right: 0;
 }
 .footer-bot h2 {
   font-size: 18px;

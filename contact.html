@@ -4,9 +4,10 @@
         <meta charset="UTF-8">
         <title>Contact</title>
         <link rel="stylesheet" type="text/css" href="css/contact-style.css"> 
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="shortcut icon" href="media/Images/logo/favicon/favicon6.ico" type="image/x-icon">
+        <link rel="icon" type="image/png" sizes="16x16" href="media/Images/logo/favicon/favicon6-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="media/Images/logo/favicon/favicon6-32x32.png">
+
 
         <!--STYLE-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,11 +23,11 @@
             <div class="logo-container">
                 <div class="header-logo">
                     <a href="index.html">
-                    <img src="media/Images/sblogbraunlogo.png" class="logo" alt="Logo" id="logo1">
+                    <img src="media/Images/logo/t6.png" class="logo" alt="Logo" id="logo1">
                     </a>
                 </div>
                     <a href="index.html">
-                    <img src="media/Images/sblogwhitelogo.png" class="logo" alt="Logo" id="logo2" style="opacity: 0;">
+                    <img src="media/Images/logo/t4.png" class="logo" alt="Logo" id="logo2" style="opacity: 0;">
                     </a>
             </div>
             <!--list-->
@@ -78,13 +79,18 @@
             <div class="left">
                 <h1>Contact me</h1>
                 <p> Welcome! I'm always happy to hear from my readers and 
-                    appreciate your feedback, questions, and suggestions. Feel free to reach out to me at <b>sami.bouzid@edu.escp.eu</b>, or you can get in touch using the contact form below.<p>
+                    appreciate your feedback, questions, and suggestions. Feel free 
+                    to reach out to me at 
+                    <span id="wordToCopy" style="cursor:pointer; position: relative;">
+                    <b>sami.bouzid@edu.escp.eu</b>,
+                    </span><span id="notif" class="notif">Email copied!</span>
+                 or you can get in touch using the contact form below.<p>
             </div>
             <div class="right">
                 <div class="image-slider">
-                    <img src="media/Images/contact-1.png" alt="Mountain">
-                    <img src="media/Images/contact-2.png" alt="Dubai">
-                    <img src="media/Images/contact-3.png" alt="Island">
+                    <img src="media/Images/contact/1.png" alt="Mountain">
+                    <img src="media/Images/contact/2.png" alt="Dubai">
+                    <img src="media/Images/contact/3.png" alt="Island">
                   </div>
             </div>
         </div>
@@ -100,7 +106,7 @@
                    <div id = "f-logo-nav">
                    <div id="footerlogo">
                     <a href="index.html">
-                       <img src="media/Images/sblogbraunlogo.png" alt="Logo">
+                       <img src="media/Images/logo/t6.png" alt="Logo">
                     </a>
                    </div>
                    <!--list-->
@@ -145,11 +151,33 @@
                        </div>
                        </div>
                        <div class="footer-bot">
-                           <h2>SBlog © 2023</h2>
+                           <h2><b>SBlog © 2023</b></h2>
                            <a href="#"> <span> Back to top</span> ▴</a>
                        </div>
                </footer>
-
+               <script>
+                            document.getElementById('wordToCopy').addEventListener('click', function() {
+                const textToCopy = this.textContent;
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showNotification(this);
+                });
+                function showNotification(targetElement) {
+                const notif = document.getElementById('notif');
+                notif.style.display = 'block';
+                const rect = targetElement.getBoundingClientRect();
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                notif.style.left = (rect.left + rect.width / 2 - notif.offsetWidth / 2) + 'px';
+                notif.style.top = (rect.top - notif.offsetHeight - 5 + scrollY) + 'px';
+                setTimeout(() => {
+                    notif.style.display = 'none';
+                }, 2000);
+                }
+               </script>
                <script>
                 const images = document.querySelectorAll(".image-slider img");
                 let currentIndex = 0;
@@ -158,10 +186,8 @@
                   images.forEach((img, index) => {
                     img.style.opacity = index === currentIndex ? 1 : 0;
                   });
-              
                   currentIndex = (currentIndex + 1) % images.length;
                 }
-              
                 changeImage(); // Call the function once before setting the interval
                 setInterval(changeImage, 5000);
               </script>

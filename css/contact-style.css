@@ -49,9 +49,16 @@ br::selection
 .footer-bot h2::selection,
 .footer-bot a::selection,
 .f-has-submenu::selection,
-.footer-bot span::selection{
+.footer-bot span::selection,
+.footer-bot b::selection,
+#wordToCopy::selection{
   background-color: #833600;
   color:#CAFFFF;
+}
+
+.left span::selection{
+  background-color: #CAFFFF;
+  color: #833600;
 }
 
 .NIGHTCORE
@@ -141,7 +148,7 @@ header {
   padding: 0;
   padding-left: 10px;
   padding-right: 33%;
-  margin-top: 29px;
+  margin-top: 28px;
   text-align: left;
   height: auto; 
   width: 148px;
@@ -198,6 +205,7 @@ footer {
   align-items: flex-start;
   padding: 100px 25px;
   font-size: 18px;
+  padding-bottom: 0;
 }
 #f-logo-nav {
   display: flex;
@@ -332,6 +340,17 @@ footer {
   opacity: 1;
 }
 
+
+.notif {
+  display: none;
+  position: absolute;
+  background-color: rgb(131, 54, 0) ;
+  color: #CAFFFF;
+  padding: 6px 8px;
+  border-radius: 0px;
+  font-size: 14px;
+  z-index: 10;
+}
 
 /****************** FORM **************/
 .form {
