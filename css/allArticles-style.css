@@ -272,7 +272,7 @@
   }
   .footer-bot a {
     text-decoration: none;
-    color: black;
+    color: white;
     margin-top: 5px;
   }
   .footer-bot a span:hover {
@@ -338,7 +338,6 @@ h1 {
 .search-button {
   width: 20%;
   margin-left: 10px;
-  padding: 6px 12px;
   background-color: black;
   font-size: 18px;
   font-family: sans-serif;
@@ -352,7 +351,35 @@ h1 {
   color: black;
   border: 1px solid black;
 }
-/* My Tabele */
+
+/* checkbox menu*/
+.custom-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.custom-dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+  display: block;
+}
+
+.custom-dropdown-menu label {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.custom-dropdown:hover .custom-dropdown-menu {
+  display: block;
+}
+
+/* My Table */
 #myTable {
   width: 100%;
 }
@@ -403,11 +430,74 @@ h1 {
   }
 
   /* Intro */
-  @media (max-width: 600px) {
-    .search-button::after {
-      content: "New Text";
-    }
+  @media (max-width: 980px) {
     .search-button {
-      text-indent: -9999px; /* Hide the original button text */
+      margin: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-left: none;
+      width: 54px;
+    }
+
+    .search-input {
+      border-right: none;
+    }
+
+    .searchbar-container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      gap: 0; /* Set the gap to 0 to remove the space between elements */
+    }
+    
+    .search-button:hover {
+      background-color: black;
+      color: white;
+    }
+
+  .search-button .search-text {
+      display: none;
+    }
+
+    .search-input:hover,
+    .search-input:hover + .search-button {
+  /* Your hover effect styles go here */
+  border-color:black; /* Example: change the background color */
+}
+
+.search-input:focus,
+.search-input:focus + .search-button {
+/* Your hover effect styles go here */
+border-color:black; /* Example: change the background color */
+}
+  }
+  /* 
+   */
+
+   @media (max-width: 980px) {
+    .search-button {
+      width: 54px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-left: none;
+    }
+    .search-button .search-text {
+      display: none;
+    }
+    .search-button::after {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 30px;
+      background-image: url("../media/Images/symbols/magnifier/1.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0 auto;
+    }
+
+    .search-button:hover::after {
+      background-image: url("../media/Images/symbols/magnifier/2.png");
     }
   }
+  
