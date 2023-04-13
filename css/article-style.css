@@ -72,7 +72,7 @@ td::selection,
     align-items: center;
     height: 80px;
     padding: 0 25px;
-    font-size: 19px;
+    font-size: 18px;
     top: 0;
     left: 0;
     right: 0;
@@ -194,7 +194,7 @@ td::selection,
     align-items: flex-start;
     font-size: 18px;
     padding: 100px 25px;
-    padding-bottom: 0;
+    padding-bottom: 80px;
   }
   #f-logo-nav {
     display: flex;

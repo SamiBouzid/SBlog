@@ -76,7 +76,17 @@
 
         <!--MY ARTICLES-->
         <div class ="myarticle">
-        <div class="container mt-5">
+
+        <div class="intro">
+            <h1>Research index</h1>
+            <div class="searchbar-container">
+                <input type="text" class="search-input" placeholder="Search the database">
+                <button class="search-button" onclick="searchInDatabase()">Search</button>
+            </div>
+        </div>
+
+        
+        <div class="Table-container">
             <table id="myTable" class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -99,44 +109,13 @@
                 </tbody>
             </table>
         </div>
-        
+
         <!-- Include jQuery and Bootstrap JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Include DataTables JS -->
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
-        <script>
-            // Your custom JavaScript code for filtering and initializing the DataTable will go here
-        $(document).ready(function() {
-            // Initialize DataTable
-            var table = $('#myTable').DataTable({
-                pageLength: 10, // Show 10 rows per page
-                order: [[0, 'desc']], // Sort by date (most recent first)
-                initComplete: function() {
-                    // Add the category filter dropdown
-                    this.api().columns(2).every(function() {
-                        var column = this;
-                        var select = $('<select class="form-control"><option value="">All</option></select>')
-                            .appendTo($("#myTable_wrapper .dataTables_length"))
-                            .on('change', function() {
-                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
-                                column.search(val ? '^' + val + '$' : '', true, false).draw();
-                            });
-        
-                        column.data().unique().sort().each(function(d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>')
-                        });
-                    });
-                }
-            });
-        
-            // Set up event listener for category filter
-            $('#myTable_filter input').on('keyup', function() {
-                table.search(this.value).draw();
-            });
-        });
-        
-        </script>
+        <script> </script>
         </div>
 
 
@@ -195,5 +174,6 @@
                    <a href="#"> <span> Back to top</span> ▴</a>
                </div>
        </footer>
+       <script src="../js/allArticles.js"></script>
     <body>
 </html>

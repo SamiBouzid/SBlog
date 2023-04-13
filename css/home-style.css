@@ -68,7 +68,7 @@ header {
   align-items: center;
   height: 80px;
   padding: 0 25px;
-  font-size: 19px;
+  font-size: 18px;
   top: 0;
   left: 0;
   right: 0;
@@ -188,7 +188,7 @@ footer {
   align-items: flex-start;
   padding: 100px 25px;
   font-size: 18px;
-  padding-bottom: 0;
+  padding-bottom: 80px;
 }
 
 #f-logo-nav {
