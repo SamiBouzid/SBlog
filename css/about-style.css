@@ -118,13 +118,13 @@ header {
   font-family: monospace;
 }
 .about:hover {
-  border-bottom: 1px solid #2d712a;
+  border-bottom: 1.5px solid #2d712a;
 }
 .has-submenu:hover .link-text, .has-submenu.active .link-text {
-  border-bottom: 1px solid #2d712a;
+  border-bottom: 1.5px solid #2d712a;
 }
 .submenu a:hover {
-  border-bottom: 1px solid #2d712a;
+  border-bottom: 1.5px solid #2d712a;
 }
 .submenu {
   display: none;
@@ -147,7 +147,7 @@ header {
 }
 .submenu li a {
   margin-bottom: 8px;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1.5px solid transparent;
 }
 /* SEARCH*/
 .search {
@@ -157,6 +157,7 @@ header {
   display: block;
   text-decoration: none;
   color: var(--text-color);
+  border-bottom: 1.5px solid transparent; /* add transparent border top to avoid moving the word */
 }
 :root {
   --text-color: #2d712a;
@@ -169,7 +170,7 @@ header {
 .has-submenu.active .link-text,
 .submenu a:hover,
 .search a:hover {
-  border-bottom: 1px solid var(--text-color);
+  border-bottom: 1.5px solid var(--text-color);
 }
 
 /*transition */
@@ -253,7 +254,7 @@ footer {
   margin-bottom: 4px;
 }
 .f-submenu li a:hover {
-  border-bottom: 1px solid #2d712a;
+  border-bottom: 1.5px solid #2d712a;
 }
 .footer-bot {
   margin-top: 220px;
@@ -265,7 +266,7 @@ footer {
   margin-right: 0;
 }
 .footer-bot h2 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 350;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin-top: 5px;
@@ -277,31 +278,27 @@ footer {
   margin-top: 5px;
 }
 .footer-bot a span:hover {
-  border-bottom: 1px solid #2d712a;
+  border-bottom: 1.5px solid #2d712a;
 }
 
 /***************INTRO***************/
 .Presentation {
-  position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 300px;
+  margin-top: 250px;
   margin-bottom: 0px;
   font-weight: 348;
   font-size: 28px;
   padding: 0 25px;
+  align-items: center; /* center items vertically */
 }
 .presleft {
-  width: calc(50% - 20px);
+  flex: 1;
+  padding-right: 100px;
+  margin-top: 10px;
 }
 .introright {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: calc(50% - 20px);
-  display: flex;
-  justify-content: center;
+  width: 400px;
 }
 .presleft h1 {
   font-size: 75px;
@@ -414,7 +411,7 @@ padding-top: 10px;
   margin-bottom: 0;
 }
 .image-container:hover .logo-title {
-  border-bottom: 1px solid black;
+  border-bottom: 1.5px solid black;
 }
 .school-item p {
   margin-top: 3px;
@@ -457,7 +454,7 @@ display: inline;
   margin-top: 5px;
 }
 .image-container:hover .xp-title {
-  border-bottom: 1px solid black;
+  border-bottom: 1.5px solid black;
 }
 /***CERTIF***/
 .cert-grid {
@@ -534,7 +531,7 @@ display: inline;
   }
   /*
   .scroll-to-bottom:hover .VM-only-underline {
-    border-bottom: 1px solid var(--text-color);
+    border-bottom: 1.5px solid var(--text-color);
   }
   .scroll-to-bottom::after {
     content: "▾";
@@ -555,17 +552,13 @@ display: inline;
     margin-bottom: 100px;
   }
 }
-/*PRESENTATION*/
+/*INTRO*/
 @media (max-width: 980px) {
   .Presentation {
-    display: block;
-  }
-
-  .presleft,
-  .introright {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .introright {

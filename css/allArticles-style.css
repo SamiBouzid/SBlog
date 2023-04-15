@@ -31,26 +31,26 @@
     background-color: transparent;
   }
   h1::selection,
-  .presleft p::selection,
-  .f-submenu a::selection,
-  .footer-bot h2::selection,
-  .footer-bot a::selection,
-  .f-has-submenu::selection,
-  .footer-bot span::selection{
-    background-color: black;
-    color:white;
-  }
+  .presleft p::selection,  
   h2::selection,
   h3::selection,
   .Hobbylist li::selection,
   .Hobbylist b::selection,
   .EduXpCer p::selection,
   h4::selection,
-  .cert-item span::selection,
-  .footer-bot b::selection
-   {
+  .cert-item span::selection{
     background-color: black;
-    color: white;
+    color:white;
+  }
+
+  .f-submenu a::selection,
+  .footer-bot h2::selection,
+  .footer-bot a::selection,
+  .f-has-submenu::selection,
+  .footer-bot span::selection,
+  .footer-bot b::selection{
+    background-color: white;
+    color:black;
   }
   
   /********************HEADER********************/
@@ -119,13 +119,13 @@
     font-family: monospace;
   }
   .about:hover {
-    border-bottom: 1px solid black;
+    border-bottom: 1.5px solid black;
   }
   .has-submenu:hover .link-text, .has-submenu.active .link-text {
-    border-bottom: 1px solid black;
+    border-bottom: 1.5px solid black;
   }
   .submenu a:hover {
-    border-bottom: 1px solid black;
+    border-bottom: 1.5px solid black;
   }
   .submenu {
     display: none;
@@ -147,7 +147,7 @@
   }
   .submenu li a {
     margin-bottom: 8px;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1.5px solid transparent;
   }
   /* SEARCH*/
   .search {
@@ -157,6 +157,7 @@
     display: block;
     text-decoration: none;
     color: var(--text-color);
+    border-top: 1.5px solid transparent; /* add transparent border top to avoid moving the word */
   }
   :root {
     --text-color: black;
@@ -169,7 +170,7 @@
   .has-submenu.active .link-text,
   .submenu a:hover,
   .search a:hover {
-    border-bottom: 1px solid var(--text-color);
+    border-bottom: 1.5px solid var(--text-color);
   }
   
   /*transition */
@@ -254,7 +255,7 @@
     margin-bottom: 4px;
   }
   .f-submenu li a:hover {
-    border-bottom: 1px solid white;
+    border-bottom: 1.5px solid white;
   }
   .footer-bot {
     margin-top: 150px;
@@ -264,7 +265,7 @@
     margin-right: auto;
   }
   .footer-bot h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 350;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin-top: 5px;
@@ -276,7 +277,7 @@
     margin-top: 5px;
   }
   .footer-bot a span:hover {
-    border-bottom: 1px solid white;
+    border-bottom: 1.5px solid white;
   }
 
   .foot-pyr {
@@ -285,18 +286,22 @@
     padding: 0;
   }
 
-  /**********************MY ARTICLE**********************/
-.myarticle{
+  /**********************MY ARTICLES**********************/
+.myarticles{
   background: white;
   color: black;
-  padding: 300px 25px;
+  padding: 0 25px;
+  padding-top: 230px;
+  padding-bottom: 300px;
+  border: 1px solid blue;
 }
-/* INTRO */
+/* INTRO = search bar*/
 .intro {
   padding-bottom: 100px;
-  margin-bottom: 50px;
-  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px;
+  border-bottom: 1.5px solid #ccc;
   height: 100%;
+  border: 1px solid blue;
 }
 h1 {
   font-size: 68px;
@@ -321,7 +326,6 @@ h1 {
 }
 .search-input::placeholder {
   color: rgb(128, 128, 128,0.7); /* Replace this with your desired color */
-  font-weight: lighter;
 }
 .search-input::-moz-placeholder { /* Mozilla Firefox 19+ */
   color: grey;
@@ -352,6 +356,82 @@ h1 {
   border: 1px solid black;
 }
 
+/********************TABLE****************/
+/*Table Cont*/
+.Table-container{
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* SETTINGS FILTER / SORT */
+.fil-symb {
+  margin-left: 5px; /* Add space between the button and the logo */
+  width: 25px; /* Adjust the width of the logo as needed */
+  height: 25px; /* Adjust the height of the logo as needed */
+  cursor: pointer;
+  margin-top: 0;
+  padding-top: 0;
+}
+.sort-fil-cont {
+  display: flex;
+  align-items: center;
+  border: 1px solid blue;
+}
+.sort-settings-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid blue;
+}
+.row {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.left-items {
+  display: flex;
+  gap: 30px; /* Add the gap between the elements */
+}
+
+.right-item {
+  margin-left: auto; /* Push the element to the right */
+}
+
+.text-btn {
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.filter-sort-btn {
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.filter-sort-btn:hover {
+  background-color: transparent;
+  color: inherit;
+}
+
+.btn {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+}
+
 /* checkbox menu*/
 .custom-dropdown {
   display: inline-block;
@@ -379,10 +459,58 @@ h1 {
   display: block;
 }
 
+
 /* My Table */
 #myTable {
   width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
 }
+ /* Set the column widths */
+ #myTable td:nth-child(1) {
+  width: 18%;
+}
+#myTable td:nth-child(2) {
+  width: 67%;
+}
+#myTable td:nth-child(3) {
+  width: 20%;
+}
+
+/* Set the row height and font size */
+#myTable tr {
+  height: 50px;
+  font-size: 20px;
+}
+
+/* Set the row height for rows with long sentences */
+#myTable tr.long-text {
+  height: 50px;
+}
+/* Set relative positioning context for the ::after pseudo-element */
+#myTable tbody tr {
+  position: relative;
+}
+
+/* Add horizontal borders between rows using the ::before pseudo-element */
+#myTable tbody tr::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  border-top: 1px solid black;
+}
+/* Add a trait at the bottom of the first row */
+#myTable tbody tr:first-child::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px; /* move border up by 1px to overlap with existing border */
+  border-top: 1px solid black; /* set border style and color */
+}
+
   /**********************MEDIA QUERY**********************/
   /*HEADER - CSS*/
   .scroll-to-bottom {
@@ -407,7 +535,7 @@ h1 {
     }
     /*
     .scroll-to-bottom:hover .VM-only-underline {
-      border-bottom: 1px solid var(--text-color);
+      border-bottom: 1.5px solid var(--text-color);
     }
     .scroll-to-bottom::after {
       content: "▾";

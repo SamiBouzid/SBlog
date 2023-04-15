@@ -1,4 +1,3 @@
-// Your custom JavaScript code for filtering and initializing the DataTable will go here
 $(document).ready(function() {
     // Define the date format
     $.fn.dataTable.moment('DD/MM/YYYY');
@@ -9,7 +8,9 @@ $(document).ready(function() {
         ordering: true,
         order: [[0, 'desc']], // Sort by date (oldest first, i.e., in ascending order)
         dom: 'lrtip', // Exclude the search input ("f") from the DataTable layout    
-
+        columnDefs: [
+            { targets: [1, 2], orderable: false } // Disable ordering for columns 1 (Title) and 2 (Category)
+        ],
         initComplete: function() {
             // Add the category filter dropdown
             this.api().columns(2).every(function() {
@@ -66,6 +67,11 @@ $('#filter-by-category').on('click', function() {
     }
 });
 
+$("#toggle-filter-sort").on("click", function() {
+    var container = $(".sort-settings-container");
+    container.toggle();
+  });
+
 // Add event listener for the "Apply" button
 $('#apply-category-filter').on('click', function() {
   // Get all the checked categories
@@ -81,8 +87,11 @@ $('#apply-category-filter').on('click', function() {
   // Hide the category dropdown
   $('.custom-dropdown-menu').hide();
 });
-
-
+  // Add event listener for the logo image
+  $(".fil-symb").on("click", function() {
+    var container = $(".sort-settings-container");
+    container.toggle();
+  });
 });
 
 function searchInDatabase() {

@@ -107,6 +107,7 @@ td::selection,
     color: var(--text-color);
     display: inline-block; 
     transition: color 0.3s ease-out;
+    border-bottom: 1.5px solid transparent; /* add transparent border top to avoid moving the word */
   }
   .has-submenu::after {
     content: "▾";
@@ -121,13 +122,13 @@ td::selection,
     transition: color 0.3s ease-out;
   }
   .about:hover {
-    border-bottom: 1px solid #0000FF;
+    border-bottom: 1.5px solid #0000FF;
   }
   .has-submenu:hover .link-text, .has-submenu.active .link-text {
-    border-bottom: 1px solid #0000FF;
+    border-bottom: 1.5px solid #0000FF;
   }
   .submenu a:hover {
-    border-bottom: 1px solid #0000FF;
+    border-bottom: 1.5px solid #0000FF;
   }
   .submenu {
     display: none;
@@ -149,7 +150,7 @@ td::selection,
   }
   .submenu li a {
     margin-bottom: 8px;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1.5px solid transparent;
   }
   /* SEARCH*/
   .search {
@@ -161,6 +162,7 @@ td::selection,
     text-decoration: none;
     color: var(--text-color);
     transition: color 0.3s ease-out;
+    border-bottom: 1.5px solid transparent; /* add transparent border top to avoid moving the word */
   }
   :root {
     --text-color: #0000FF;
@@ -173,7 +175,7 @@ td::selection,
   .has-submenu.active .link-text,
   .submenu a:hover,
   .search a:hover {
-    border-bottom: 1px solid var(--text-color);
+    border-bottom: 1.5px solid var(--text-color);
   }
   
 /*transition */
@@ -257,7 +259,7 @@ td::selection,
     margin-bottom: 4px;
   }
   .f-submenu li a:hover {
-    border-bottom: 1px solid #0000FF;
+    border-bottom: 1.5px solid #0000FF;
   }
   .footer-bot {
     margin-top: 200px;
@@ -267,7 +269,7 @@ td::selection,
     margin-right: auto;
   }
   .footer-bot h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 350;
     margin-top: 5px;
     margin-right: 23%;
@@ -278,7 +280,7 @@ td::selection,
     margin-top: 5px;
   }
   .footer-bot a span:hover {
-    border-bottom: 1px solid #0000FF;
+    border-bottom: 1.5px solid #0000FF;
   }
 
 
@@ -290,7 +292,7 @@ td::selection,
 
 /**********************INTRO**********************/
 .intro {
-margin-top: 200px;
+margin-top: 150px;
 padding: 100px 100px;
 font-size: 28px;
 padding-bottom: 50px;
@@ -302,10 +304,10 @@ font-size: 75px;
 .intro a {
   text-decoration: none;
   color: #0000FF;
-  border-bottom: 1px solid #0000FF;
+  border-bottom: 1.5px solid #0000FF;
 }
 .intro a:hover {
-  border-bottom: 1px solid rgba(0,0,255,0.3);
+  border-bottom: 1.5px solid rgba(0,0,255,0.2);
 }
 .intro-sum {
   font-size: 18px;
@@ -338,7 +340,7 @@ font-size: 75px;
 
 
 /*********** ARTICLE CONTENT ****************/
-/*FORM*/
+/*STYLE*/
 .bgwhite {
   background-color: white;
 }
@@ -362,6 +364,15 @@ font-family: sans-serif;
 .art-right {
 width: 60%;
 }
+.art-u-right a {
+  text-decoration: none;
+  color: black;
+  border-bottom: 1.5px solid black;
+}
+.art-u-right a:hover {
+  border-color: rgb(0, 0, 0,0.2);
+}
+
 .article-content h3 {
 font-size: 27px;
 font-family: sans-serif;
@@ -378,7 +389,7 @@ padding-top: 100px;
 }
 .my-table th,
 .my-table td {
-  border-bottom: 0.5px solid rgb(0, 0, 0,0.3);
+  border-bottom: 0.5px solid rgb(0, 0, 0,0.2);
   padding:5px 10px;
   text-align: left;
   vertical-align: top;
@@ -446,11 +457,11 @@ padding-top: 100px;
 .myart-links {
   text-decoration: none;
   color: black;
-  border-bottom: 1px solid black;
+  border-bottom: 1.5px solid black;
 }
 
 .myart-links:hover {
-  border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+  border-bottom: 1.5px solid rgba(128, 128, 128, 0.4);
 }
 
 .article-content ul, ol {
@@ -480,7 +491,7 @@ padding-top: 100px;
     }
     /*
     .scroll-to-bottom:hover .VM-only-underline {
-      border-bottom: 1px solid var(--text-color);
+      border-bottom: 1.5px solid var(--text-color);
     }
     .scroll-to-bottom::after {
       content: "▾";
@@ -517,7 +528,10 @@ padding-top: 100px;
     font-size: calc(9px + 1.5vw);
   }
   .art-date {
-    font-size: calc(5px + 1.5vw);
+    font-size: calc(7px + 1.5vw);
+  }
+  .art-u-right{
+    font-size: calc(7px + 1.5vw);
   }
   .article img {
     width: 100%;

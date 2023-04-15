@@ -20,11 +20,11 @@ body a:not(#articlesp2 a) {
 .right a {
   text-decoration: none;
   color: #833600;
-  border-bottom: 1px solid #833600;
+  border-bottom: 1.5px solid #833600;
 }
 
 .right a:hover {
-  border-bottom: 1px solid 	rgb(131, 54, 0,0.3);
+  border-bottom: 1.5px solid 	rgb(131, 54, 0,0.3);
 }
 
 
@@ -37,7 +37,8 @@ body a:not(#articlesp2 a) {
 .search a::selection,
 #footerlogo img::selection,
 img::selection,
-br::selection
+br::selection,
+.form-row button::selection
 {
   background-color: transparent;
 
@@ -61,10 +62,16 @@ br::selection
   color: #833600;
 }
 
-.NIGHTCORE
- {
+h2::selection,
+#message::selection,
+input::selection,
+input:-webkit-autofill::selection,
+textarea:-webkit-autofill ::selection,
+input:-webkit-autofill:focus::selection,
+textarea:-webkit-autofill:focus::selection
+{
   background-color: black;
-  color: white;
+  color: white !important;
 }
 
 /********************HEADER********************/
@@ -134,13 +141,13 @@ header {
   transition: color 0.3s ease-out;
 }
 .about:hover {
-  border-bottom: 1px solid #833600;
+  border-bottom: 1.5px solid #833600;
 }
 .has-submenu:hover .link-text, .has-submenu.active .link-text {
-  border-bottom: 1px solid #833600;
+  border-bottom: 1.5px solid #833600;
 }
 .submenu a:hover {
-  border-bottom: 1px solid #833600;
+  border-bottom: 1.5px solid #833600;
 }
 .submenu {
   display: none;
@@ -162,7 +169,7 @@ header {
 }
 .submenu li a {
   margin-bottom: 8px;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1.5px solid transparent;
 }
 /* SEARCH*/
 .search {
@@ -172,6 +179,7 @@ header {
   display: block;
   text-decoration: none;
   color: var(--text-color);
+  border-bottom: 1.5px solid transparent; /* add transparent border top to avoid moving the word */
 }
 :root {
   --text-color: #833600;
@@ -184,7 +192,7 @@ header {
 .has-submenu.active .link-text,
 .submenu a:hover,
 .search a:hover {
-  border-bottom: 1px solid var(--text-color);
+  border-bottom: 1.5px solid var(--text-color);
 }
 
 /*transition */
@@ -268,7 +276,7 @@ footer {
   margin-bottom: 4px;
 }
 .f-submenu li a:hover {
-  border-bottom: 1px solid #833600;
+  border-bottom: 1.5px solid #833600;
 }
 .footer-bot {
   margin-top: 150px;
@@ -278,7 +286,7 @@ footer {
   margin-right: auto;
 }
 .footer-bot h2 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 350;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin-top: 5px;
@@ -290,13 +298,13 @@ footer {
   margin-top: 5px;
 }
 .footer-bot a span:hover {
-  border-bottom: 1px solid #833600;
+  border-bottom: 1.5px solid #833600;
 }
 
 /******************CONTACT**********************/
 .contact {
   padding: 0 25px;
-  padding-top: 300px;
+  padding-top: 250px;
   padding-bottom: 50px;
   font-weight: 348;
   font-size: 28px;
@@ -355,9 +363,123 @@ footer {
 /****************** FORM **************/
 .form {
   background-color: white;
-  padding-bottom: 200px;
+  padding:100px 25px;
+  color: black;
 }
 
+.form h2 {
+  border-top: 1px solid black;
+  margin-top: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  font-weight: 200;
+  padding-bottom: 30px;
+}
+
+.form-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px; /* Set the gap to 0 to remove the space between elements */
+  margin: 25px 0;
+}
+
+.form-col {
+  flex-basis: 50%;
+  box-sizing: border-box;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  height: 40px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  border-radius: 0;
+  background-color: white;
+  color: black;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+
+input::placeholder,
+textarea::placeholder {
+  color: rgb(128, 128, 128,0.7); /* Replace this with your desired color */
+  font-size: 16px; /* Change the font size of the placeholder text */
+  font-family: sans-serif;
+  font-weight: 200;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: grey;
+  opacity: 0.7; /* Firefox sets the placeholder opacity to 0.54 by default, so we need to override it */
+  font-weight: lighter;
+  font-size: 16px; /* Change the font size of the placeholder text */
+  font-family: sans-serif;
+  font-weight: 200;
+}
+
+/* Add this to your existing CSS */
+input:hover,
+textarea:hover {
+  border: 1px solid black; /* Change the border color to black on hover */
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid black; /* Change the border color to black when the input or textarea is focused (clicked) */
+  outline: none; /* Remove the default outline when the input or textarea is focused */
+  font-size: 16px; /* Change the font size of the placeholder text */
+  font-family: sans-serif;
+  font-weight: 200;
+}
+
+/* Change the style of the input and textarea when typing */
+input:valid,
+textarea:valid {
+  border: 1px solid rgb(0, 0, 0); /* Change the border color when typing (content is valid) */
+  font-size: 16px; /* Change the font size of the placeholder text */
+  font-family: sans-serif;
+  font-weight: 200;
+}
+
+/* Set a bigger height for the message textarea and send button */
+textarea {
+  height: 80px; /* Increase the height of the textarea and button */
+}
+button {
+  height: 70px; /* Increase the height of the textarea and button */
+  font-size: 28px; /* Change the font size of the placeholder text */
+  font-family: sans-serif;
+  font-weight: 200;
+}
+
+/* Change the style of the input and textarea when typing */
+input:not(:placeholder-shown),
+textarea:not(:placeholder-shown) {
+  border: 1px solid black; /* Change the border color when typing (content is valid) */
+}
+
+/* Change the style of the email input when it's not valid */
+input[type="email"]:invalid {
+  font-size: 16px; /* Change the font size of the placeholder text */
+  font-family: sans-serif;
+  font-weight: 200;
+}
 
 /**********************MEDIA QUERY**********************/
 /*HEADER - CSS*/
@@ -383,7 +505,7 @@ footer {
   }
   /*
   .scroll-to-bottom:hover .VM-only-underline {
-    border-bottom: 1px solid var(--text-color);
+    border-bottom: 1.5px solid var(--text-color);
   }
   .scroll-to-bottom::after {
     content: "▾";

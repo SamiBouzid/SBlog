@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Revert the highlight colors to the initial state
             document.documentElement.style.setProperty('--text-color', '#ffc98a');
-            document.documentElement.style.setProperty('--submenu-bg-color', 'transparent');
+            document.documentElement.style.setProperty('--submenu-bg-color', '#005454');
         }
     });
 });
