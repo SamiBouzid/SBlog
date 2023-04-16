@@ -275,21 +275,4 @@ function searchInDatabase() {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Fade in the current page.
-    document.body.classList.add("fade-in");
-  });
-  
-  window.addEventListener("beforeunload", function (event) {
-    // Prevent the default behavior.
-    event.preventDefault();
-  
-    // Fade out the current page.
-    document.body.classList.remove("fade-in");
-  
-    // Set a timeout to navigate to the new page after the fade-out effect is done.
-    setTimeout(function () {
-      // Replace the following line with your navigation logic.
-      window.location.href = "../viewAllArticles/allArticles.html";
-    }, 500);
-  });
+

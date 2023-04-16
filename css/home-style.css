@@ -7,15 +7,19 @@ body, h1 {
   font-family: sans-serif;
   font-weight: 348;
   width: 100%;
+}  
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-body{
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  }
-
-.fade-in {
-  opacity: 1 !important;
+body {
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 /* HIGHLIGHITNG */
@@ -88,7 +92,7 @@ header {
   width: 80px;
   margin-right: 0px;
   margin-left: -15px;
-  transition: opacity 0.3s;
+  transition: opacity 0.2s;
   position: absolute;
   top: 46%;
   transform: translateY(-50%);
@@ -116,7 +120,7 @@ header {
   content: "▾";
   font-family: monospace;
   display: inline-block;
-  transition: transform 0.3s; /* Optional: add a smooth transition */
+  transition: transform 0.2s; /* Optional: add a smooth transition */
 }
 .has-submenu.active::after {
   transform: rotate(-180deg);
@@ -143,7 +147,7 @@ header {
   width: 148px;
   position: absolute;
   background-color: var(--submenu-bg-color);
-  transition: border-color 0.3s ease-out;
+  transition: border-color 0.2s ease-out;
   left: -0px;
 }
 .submenu li {
@@ -180,13 +184,13 @@ header {
 
 /*transition */
 #header, .submenu {
-  transition: background-color 0.3s ease-out;
+  transition: background-color 0.2s ease-out;
 }
 .header a, .header span, .about {
-  transition: color 0.3s ease-out;
+  transition: color 0.2s ease-out;
 }
 #logo1, #logo2 {
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.2s ease-out;
 }
 
 /********************FOOTER********************/
@@ -393,7 +397,7 @@ footer {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: opacity 0.3s;
+    transition: opacity 0.2s;
     opacity: 1;
 }
 .image-container:hover .square-image {
@@ -403,9 +407,9 @@ footer {
     margin-top: 10px;
     margin-bottom: 0;
     font-size: 18px;
-    transition: color 0.3s;
+    transition: color 0.2s;
     border-bottom: 1.5px solid transparent;
-    transition: border-color 0.3s;
+    transition: border-color 0.2s;
 }
 .image-subtitle {
     margin-top: 5px;

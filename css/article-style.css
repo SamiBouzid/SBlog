@@ -16,6 +16,19 @@
   body a:not(#articlesp2 a) {
     white-space: nowrap;
   }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  body {
+    animation: fadeIn 0.5s ease-in-out;
+  }
   
   /* HIGHLIGHITNG */
 .header-logo img::selection,
@@ -100,20 +113,20 @@ td::selection,
     margin: 15px;
     margin-left: 0;
     position: relative;
-    transition: color 0.3s ease-out;
+    transition: color 0.2s ease-out;
   }
   .nav a {
     text-decoration: none;
     color: var(--text-color);
     display: inline-block; 
-    transition: color 0.3s ease-out;
+    transition: color 0.2s ease-out;
     border-bottom: 1.5px solid transparent; /* add transparent border top to avoid moving the word */
   }
   .has-submenu::after {
     content: "▾";
     font-family: monospace;
     display: inline-block;
-    transition: transform 0.3s; /* Optional: add a smooth transition */
+    transition: transform 0.2s; /* Optional: add a smooth transition */
   }
   .has-submenu.active::after {
     transform: rotate(-180deg);
@@ -153,13 +166,13 @@ td::selection,
   /* SEARCH*/
   .search {
     text-align: right;
-    transition: color 0.3s ease-out;
+    transition: color 0.2s ease-out;
   }
   .search a {
     display: block;
     text-decoration: none;
     color: var(--text-color);
-    transition: color 0.3s ease-out;
+    transition: color 0.2s ease-out;
     border-bottom: 1.5px solid transparent; /* add transparent border top to avoid moving the word */
   }
   :root {
@@ -178,13 +191,13 @@ td::selection,
   
 /*transition */
 #header, .submenu {
-  transition: background-color 0.3s ease-out;
+  transition: background-color 0.2s ease-out;
 }
 .header a, .header span, .about {
-  transition: color 0.3s ease-out;
+  transition: color 0.2s ease-out;
 }
 #logo1, #logo2 {
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.2s ease-out;
 }
 
   /********************FOOTER********************/
