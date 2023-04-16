@@ -490,6 +490,7 @@ table.dataTable {
   display: inline-block;
   margin-right: 3px;
   vertical-align: middle; /* Align the checkbox vertically in the middle */
+  border-radius: 0;
 }
 label {
   display: inline-block;
@@ -510,6 +511,7 @@ label {
   outline: none;
   background-color: white;
   border: 2.2px solid #000;
+  border-radius: 0;
 }
 
 /* Style the checkboxes when checked */
@@ -554,6 +556,16 @@ label {
   border-bottom: 1px solid black;
   margin-bottom: 0;
 }
+#myTable td {
+  height: 52px;
+  font-size: 18px;
+  font-weight: normal;
+  white-space: normal !important;
+}
+
+#myTable td:nth-child(1) {
+  white-space: nowrap;
+}
 .incom-art {
   color: grey;
   cursor: pointer;
@@ -580,7 +592,6 @@ label {
 }
 /* Set the row height and font size */
 #myTable tr {
-  height: 52px;
   font-size: 18px;
   font-weight: normal;
 }
@@ -702,7 +713,7 @@ label {
     }
   }
 
-  /* Intro */
+  /* Intro = Search bar */
   @media (max-width: 980px) {
     .search-button {
       margin: 0;
@@ -711,48 +722,8 @@ label {
       border-left: none;
       width: 54px;
     }
-
     .search-input {
       border-right: none;
-    }
-
-    .searchbar-container {
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      gap: 0; /* Set the gap to 0 to remove the space between elements */
-    }
-    
-    .search-button:hover {
-      background-color: black;
-      color: white;
-    }
-
-  .search-button .search-text {
-      display: none;
-    }
-
-    .search-input:hover,
-    .search-input:hover + .search-button {
-  /* Your hover effect styles go here */
-  border-color:black; /* Example: change the background color */
-}
-
-.search-input:focus,
-.search-input:focus + .search-button {
-/* Your hover effect styles go here */
-border-color:black; /* Example: change the background color */
-}
-  }
-  /* 
-   */
-
-   @media (max-width: 980px) {
-    .search-button {
-      width: 54px;
-      background-color: white;
-      border: 1px solid #ccc;
-      border-left: none;
     }
     .search-button .search-text {
       display: none;
@@ -768,9 +739,93 @@ border-color:black; /* Example: change the background color */
       background-position: center;
       margin: 0 auto;
     }
-
     .search-button:hover::after {
       background-image: url("../media/Images/symbols/magnifier/2.png");
     }
+    .searchbar-container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      gap: 0; /* Set the gap to 0 to remove the space between elements */
+    }
+    .search-button:hover {
+      background-color: black;
+      color: white;
+    }
+  .search-button .search-text {
+      display: none;
+    }
+    .search-input:hover,
+    .search-input:hover + .search-button {
+      /* Your hover effect styles go here */
+      border-color:black; /* Example: change the background color */
+    }
+    .search-input:focus,
+    .search-input:focus + .search-button {
+    /* Your hover effect styles go here */
+    border-color:black; /* Example: change the background color */
+    }
   }
   
+  /* FILTER & SORT */
+  @media (max-width: 980px) {
+    .row {
+      flex-direction: column;
+    }
+
+  .topic-box {
+  width: 100%;
+  }
+
+.left-items{
+  display: block;
+  width: 100%;
+}
+.left-items > * {
+  margin-bottom: 20px; /* Add desired space between elements */
+  width: 100%;
+}
+
+.left-items > *:last-child {
+  margin-bottom: 0; /* Remove margin-bottom from the last child */
+}
+  }
+
+
+/* Media query */
+@media (max-width: 980px) {
+  /* Hide the first and last columns */
+  #myTable td:nth-child(3),
+  #myTable td:nth-child(4) {
+    display: none;
+  }
+
+  /* Make the second column take the full width */
+  #myTable td:nth-child(2) {
+    width: 100%;
+  }
+
+  /* Adjust the display of table rows and cells */
+  #myTable tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Add space between the first and second columns */
+  #myTable td:nth-child(2) {
+    margin-top: 10px;
+    padding: 0;
+    margin: 0;
+    white-space: normal !important;
+  }
+  #myTable td, #myTable td a{
+    white-space: normal !important;
+  }
+  #myTable td:nth-child(1) {
+    white-space: nowrap;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  }

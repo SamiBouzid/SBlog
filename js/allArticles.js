@@ -52,9 +52,13 @@ $(document).ready(function() {
                     label.appendTo(topicBox);
                     topicBox.appendTo(dropdownMenu);
                 });
+                
             });
+            
         }
+        
     });
+    
 $('#filter-by-topic').on('click', function() {
     // Toggle the display of the topic dropdown with a smooth rolling effect
     $('#topic-container').stop(true, true).slideToggle(100);
@@ -232,4 +236,43 @@ function searchInDatabase() {
         $('#myTable').show();
         $('#no-results-message').text('');
     }
-}
+}$(document).ready(function() {
+    // Your existing code here...
+
+    // Add the function to get the URL parameter value
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Get the 'filter' URL parameter
+    var filterParam = getUrlParameter('filter');
+
+    // Define the filters based on the parameter value
+    var filterMap = {
+        '1': 'Macroeconomics Trends',
+        '2': 'Market Trends',
+        '3': 'Industry Developments',
+        '4': 'Political Events',
+        '5': 'Theories',
+        '6': 'Market Neutral',
+        '7': 'Machine Learning',
+        '8': 'Technical Analysis',
+        '9': 'Momentum',
+        '10': 'Pairs Trading',
+        '11': 'Volatility',
+        '12': 'Stocks',
+        '13': 'Cryptocurrencies',
+        '14': 'Industries & Sectors',
+    };
+
+    // Apply the preset filter if the URL parameter exists
+    if (filterParam && filterMap[filterParam]) {
+        $('.topic-checkbox[data-topic="' + filterMap[filterParam] + '"]').prop('checked', true);
+        $('#apply-topic-filter').trigger('click');
+    }
+});
+
+
