@@ -337,7 +337,7 @@ h1 {
 .search-input:focus {
   outline: none;
   border-color: black;
-  border-radius: 0%;
+  border-radius: 0;
 }
 .search-button {
   width: 20%;
@@ -724,6 +724,7 @@ label {
     }
     .search-input {
       border-right: none;
+      border-radius: 0;
     }
     .search-button .search-text {
       display: none;
