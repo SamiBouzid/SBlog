@@ -30,7 +30,7 @@ window.addEventListener('scroll', () => {
       document.documentElement.style.setProperty('--submenu-bg-color', 'white');
     } else {
       document.documentElement.style.setProperty('--text-color', '#2d712a');
-      document.documentElement.style.setProperty('--submenu-bg-color', 'transparent');
+      document.documentElement.style.setProperty('--submenu-bg-color', '#fee6ff');
     };
 });
 

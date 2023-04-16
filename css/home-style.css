@@ -105,15 +105,13 @@ header {
 }
 .has-submenu::after {
   content: "▾";
-  margin-right: 0px;
   font-family: monospace;
-  transition: color 0.3s ease-out;
+  display: inline-block;
+  transition: transform 0.3s; /* Optional: add a smooth transition */
 }
 .has-submenu.active::after {
-  content: "▹";
-  margin-right: 0px;
-  font-family: monospace;
-  transition: color 0.3s ease-out;
+  transform: rotate(-180deg);
+  transform-origin: center center;
 }
 .about:hover {
   border-bottom: 1.5px solid #ffc98a;
@@ -274,17 +272,9 @@ footer {
   color: #ffc98a;
   margin-top: 5px;
 }
-.footer-bot a span:hover {
+.footer-bot a:hover > span {
   border-bottom: 1.5px solid #ffc98a;
 }
-
-.foot-pyr {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  margin-top: -40px;
-}
-
 /********************INTRO********************/
 #intro {
   padding: 0 25px;

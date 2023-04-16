@@ -1,43 +1,126 @@
 $(document).ready(function() {
     // Define the date format
-    $.fn.dataTable.moment('DD/MM/YYYY');
+    $.fn.dataTable.moment('MMM D, YYYY');
     // Initialize DataTable
     var table = $('#myTable').DataTable({
         pageLength: 5, // Show 5 rows per page
+        language: {
+            info: "_START_ – _END_ of _TOTAL_",
+            infoFiltered: "",
+            infoEmpty: "",
+            zeroRecords: "No results found",
+            paginate: {
+                first: "&laquo;",
+                last: "&raquo;",
+                previous: "←",
+                next: "→"
+            }
+        },
         lengthChange: false,
         ordering: true,
         order: [[0, 'desc']], // Sort by date (oldest first, i.e., in ascending order)
-        dom: 'lrtip', // Exclude the search input ("f") from the DataTable layout    
+        dom: 'lrtip', // Exclude the search input ("f") from the DataTable layout
         columnDefs: [
-            { targets: [1, 2], orderable: false } // Disable ordering for columns 1 (Title) and 2 (Category)
+            { targets: [1, 2], orderable: false }, // Disable ordering for columns 1 (Title) and 2 (Category)
+            { targets: [3], visible: false } // Hide the 4th column
         ],
         initComplete: function() {
-            // Add the category filter dropdown
+            // Add the topic filter dropdown
             this.api().columns(2).every(function() {
                 var column = this;
-                var dropdownMenu = $("#categoryDropdownMenu");
-    
-                column.data().unique().sort().each(function(d, j) {
-                    var checkboxId = 'categoryCheckbox' + j;
-                    var checkbox = $('<input type="checkbox" id="' + checkboxId + '" data-category="' + d + '">');
-                    var label = $('<label for="' + checkboxId + '">' + d + '</label>');
-    
-                    checkbox.appendTo(label);
-                    label.appendTo(dropdownMenu);
-    
-                    checkbox.on('change', function() {
-                        var val = $.fn.dataTable.util.escapeRegex($(this).attr('data-category'));
-                        var isChecked = $(this).is(':checked');
-                        if (isChecked) {
-                            column.search(column.search() + '|' + '^' + val + '$', true, false).draw();
-                        } else {
-                            column.search(column.search().replace('|^' + val + '$', ''), true, false).draw();
-                        }
-                    });
+                var dropdownMenu = $("#topic-container");
+        
+                // Calculate topic counts
+                var topicCounts = {};
+                column.data().each(function(d, j) {
+                    if (topicCounts.hasOwnProperty(d)) {
+                        topicCounts[d]++;
+                    } else {
+                        topicCounts[d] = 1;
+                    }
+                });
+        
+                // Create topic boxes
+                Object.keys(topicCounts).sort().forEach(function(d, j) {
+                    var checkboxId = 'topicCheckbox' + j;
+                    var checkbox = $('<input type="checkbox" class="topic-checkbox" id="' + checkboxId + '" data-topic="' + d + '">');
+                    var countSpan = $('<span class="count-parentheses"> (' + topicCounts[d] + ')</span>');
+                    var label = $('<label for="' + checkboxId + '">' + d + '</label>').append(countSpan);
+                
+                    var topicBox = $('<div class="topic-box"></div>');
+                    checkbox.appendTo(topicBox);
+                    label.appendTo(topicBox);
+                    topicBox.appendTo(dropdownMenu);
                 });
             });
         }
     });
+$('#filter-by-topic').on('click', function() {
+    // Toggle the display of the topic dropdown with a smooth rolling effect
+    $('#topic-container').stop(true, true).slideToggle(100);
+});    
+
+// Add event listener to the "Apply" button
+$('#apply-topic-filter').on('click', function() {
+    var checkedTopics = [];
+    $('.topic-checkbox:checked').each(function() {
+        checkedTopics.push($(this).attr('data-topic'));
+    });
+
+    // Display selected topics
+    var selectedTopicsContainer = $('#selected-topics-container');
+    selectedTopicsContainer.empty(); // Clear the container
+    checkedTopics.forEach(function(topic) {
+        var selectedTopicDiv = $('<div class="selected-topic"></div>');
+        var checkbox = $('<input type="checkbox" class="selected-topic-checkbox" checked>');
+        var label = $('<label>' + topic + '</label>');
+
+        checkbox.appendTo(selectedTopicDiv);
+        label.appendTo(selectedTopicDiv);
+        selectedTopicDiv.appendTo(selectedTopicsContainer);
+    });
+
+    if (checkedTopics.length > 0) {
+        table.column(2).search(checkedTopics.join('|'), true, false).draw();
+    } else {
+        table.column(2).search('').draw();
+    }
+});
+
+    // Add event listener to the "Apply" button
+    $('#apply-topic-filter').on('click', function() {
+        var checkedTopics = [];
+        $('.topic-checkbox:checked').each(function() {
+            checkedTopics.push($(this).attr('data-topic'));
+        });
+
+        if (checkedTopics.length > 0) {
+            table.column(2).search(checkedTopics.join('|'), true, false).draw();
+        } else {
+            table.column(2).search('').draw();
+        }
+        $('#reset-topic-filter').on('click', function() {
+            // Clear all the checkboxes
+            $('.topic-checkbox:checked').each(function() {
+                $(this).prop('checked', false);
+            });
+        
+            // Reset the DataTable search
+            table.column(2).search('').draw();
+        
+            // Hide the topic dropdown
+            $('#topic-container').hide();
+        });
+
+        // Hide the topic dropdown
+        $('#topic-container').hide();
+    });
+
+    $('#filter-by-topic').on('click', function() {
+        $(this).toggleClass('active');
+        // Your existing code for toggling the topic dropdown
+    });
+
 // Add event listener to the search button
 $('.search-button').on('click', function() {
     searchInDatabase();
@@ -52,46 +135,69 @@ $("#sort-by-date").on("click", function() {
 
     if (currentSortOrder === "desc") {
         currentSortOrder = "asc";
+        $(this).html("Date: newest &uarr;"); // Update the button text for ascending order
     } else {
         currentSortOrder = "desc";
+        $(this).html("Date: oldest &darr;"); // Update the button text for descending order
     }
 });
 
-// Add event listener to the "Filter by Category" button
-$('#filter-by-category').on('click', function() {
-    // Toggle the display of the category dropdown
-    $('.custom-dropdown-menu').toggle();
-    // Remove any search queries when hiding the dropdown
-    if ($('.custom-dropdown-menu').is(':hidden')) {
-        table.column(2).search('').draw();
-    }
+$('#reset-topic-filter').on('click', function() {
+    // Clear all the checkboxes
+    $('.topic-checkbox:checked').each(function() {
+        $(this).prop('checked', false);
+    });
+
+    // Reset the DataTable search
+    table.column(2).search('').draw();
+
+    // Remove the selected topics
+    $('#selected-topics-container').empty();
+
+    // Hide the topic dropdown
+    $('#topic-container').hide();
 });
 
 $("#toggle-filter-sort").on("click", function() {
     var container = $(".sort-settings-container");
     container.toggle();
-  });
 
-// Add event listener for the "Apply" button
-$('#apply-category-filter').on('click', function() {
-  // Get all the checked categories
-  var checkedCategories = [];
-  $('.category-checkbox:checked').each(function() {
-    checkedCategories.push($(this).attr('data-category'));
-  });
-  
-  // Apply the filters to the table
-  var table = $('#myTable').DataTable();
-  table.column(2).search(checkedCategories.join('|'), true, false).draw();
-
-  // Hide the category dropdown
-  $('.custom-dropdown-menu').hide();
+    // Toggle the visibility of the Apply and Reset buttons
+    $("#apply-topic-filter, #reset-topic-filter").toggle();
 });
-  // Add event listener for the logo image
-  $(".fil-symb").on("click", function() {
+});
+
+$(".fil-symb").on("click", function() {
     var container = $(".sort-settings-container");
     container.toggle();
-  });
+
+    // Toggle the visibility of the Apply and Reset buttons
+    $("#apply-topic-filter, #reset-topic-filter").toggle();
+});
+
+// TABLE FOOTER STYLING
+$('#myTable').on('draw.dt', function() {
+    var previousButton = $('.dataTables_paginate .paginate_button.previous');
+    var nextButton = $('.dataTables_paginate .paginate_button.next');
+    
+    if (previousButton.text() !== '← Previous page' && previousButton.hasClass('disabled') === false) {
+        previousButton.text('← Previous page');
+    }
+    else {
+        previousButton.text('');
+    }
+    
+    if (nextButton.text() !== 'Next page →' && nextButton.hasClass('disabled') === false) {
+        nextButton.text('Next page →');
+    }
+    else {
+        nextButton.text('');
+    }
+});
+
+// SEE IF RESULTS ARE DISPLAYED OR NOT
+$('.search-button').on('click', function() {
+    searchInDatabase();
 });
 
 function searchInDatabase() {
@@ -103,4 +209,27 @@ function searchInDatabase() {
 
     // Perform the search
     table.search(searchQuery).draw();
+}
+
+function searchInDatabase() {
+    // Get the DataTable instance
+    var table = $('#myTable').DataTable();
+    
+    // Get the search query from the input
+    const searchQuery = document.querySelector(".search-input").value;
+
+    // Perform the search
+    table.search(searchQuery).draw();
+
+    // Check if there are any search results
+    var numResults = table.rows({search: 'applied'}).data().length;
+    if (numResults === 0) {
+        // Hide the table and show the "no results" message
+        $('#myTable').hide();
+        $('#no-results-message').text('No results found for "' + searchQuery + '"');
+    } else {
+        // Show the table and hide the "no results" message
+        $('#myTable').show();
+        $('#no-results-message').text('');
+    }
 }

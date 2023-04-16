@@ -69,101 +69,145 @@
                 <a href="#">Search</a>
             </div>
         </div>
-        </header>
+        </header>        
         <!--JS FOR HEADER-->
         <script src="../js/header1.js"></script>
 
         <!--MY ARTICLES-->
         <div class ="myarticles">
-
-        <div class="intro">
-            <h1>Research index</h1>
-            <div class="searchbar-container">
-                <input type="text" class="search-input" placeholder="Search the database">
-                <button class="search-button" onclick="searchInDatabase()">
-                    <span class="search-text">Search</span>
-                    <span class="search-icon"></span>
-                  </button>
-            </div>
-        </div>
-
-        
-        <div class="Table-container">
-
-            <!--Button Filter & Sort-->
-            <div class="sort-fil-cont">
-                <span id="toggle-filter-sort" class="filter-sort-btn">Filter and Sort</span>
-                <img src="../media/Images/symbols/Sort-Filter/filter.png" class="fil-symb">
+            <!--SEARCH BAR-->
+            <div class="intro">
+                <h1>Research index</h1>
+                <div class="searchbar-container">
+                    <input type="text" class="search-input" placeholder="Search the database">
+                    <button class="search-button" onclick="searchInDatabase()">
+                        <span class="search-text">Search</span>
+                        <span class="search-icon"></span>
+                    </button>
+                </div>
             </div>
 
-                <div class="sort-settings-container">
-                  <div class="row">
-                    <div class="left-items">
-                      <span id="filter-by-topic" class="text-btn">Topics</span>
-                      <span id="filter-by-category" class="text-btn">Categories</span>
-                    </div>
-                    <span id="sort-by-date" class="text-btn right-item">Date</span>
-                  </div>
-                  <div class="row">
-                    <div class="left-items">
-                      <button id="apply-category-filter" class="btn">Apply</button>
-                      <button id="reset-category-filter" class="btn">Reset</button>
-                    </div>
-                  </div>
-                  <div class="custom-dropdown-container">
-                    <div class="custom-dropdown-menu" id="categoryDropdownMenu" style="display: none;">
-                      <!-- Category checkboxes will be added here -->
-                    </div>
-                  </div>
+            <!--SORT AND FILTER SECTION-->
+            <div class="Table-container">
+
+                <!--Button Filter & Sort-->
+                <div class="sort-fil-cont">
+                    <span id="toggle-filter-sort" class="filter-sort-btn">Filter and Sort</span>
+                    <img src="../media/Images/symbols/Sort-Filter/filter.png" class="fil-symb">
                 </div>
 
+                    <!--Txt buttons: topics / date-->
+                    <div class="sort-settings-container">
+                    <div class="row">
+                        <div class="left-items">
+                        <span id="filter-by-topic" class="text-btn"><span class="underline-just-you">Topics</span></span>
+                        </div>
+                        <span id="sort-by-date" class="text-btn right-item">Date: newest ↑</span>
+                    </div>
 
-            <table id="myTable" class="table table-striped table-bordered">
-                <tbody>
-                    <tr>
-                        <td>06/04/2023</td>
-                        <td>Top Industries of Tomorrow: Which sectors will be dominant in 2030 and beyond?</td>
-                        <td>Industry</td>
-                    </tr>
-                    <tr>
-                        <td>08/04/2023</td>
-                        <td>Modern Portfolio Theory in Python: Portfolio Optimization using Markowitz Theory</td>
-                        <td>Theory</td>
-                    </tr>
-                    <tr>
-                        <td>08/04/2019</td>
-                        <td>AModern Portfolio Theory in Python: Portfolio Optimization using Markowitz Theory</td>
-                        <td>Stocks</td>
-                    </tr>
-                    <tr>
-                        <td>08/04/2020</td>
-                        <td>BModern Portfolio Theory in Python: Portfolio Optimization using Markowitz Theory</td>
-                        <td>Theory</td>
-                    </tr>
-                    <tr>
-                        <td>08/04/2021</td>
-                        <td>CModern Portfolio Theory in Python: Portfolio Optimization using Markowitz Theory</td>
-                        <td>Theory</td>
-                    </tr>
-                    <tr>
-                        <td>08/01/2022</td>
-                        <td>DModern Portfolio Theory in Python: Portfolio Optimization using Markowitz Theory</td>
-                        <td>Theory</td>
-                    </tr>
-                    <tr>
-                        <td>08/02/2023</td>
-                        <td>EModern Portfolio Theory in Python: Portfolio Optimization using Markowitz Theory</td>
-                        <td>Cryptocurrencies</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                    <div class="custom-dropdown-container">
+                        <div id="topic-container" class="row" style="display: none;"></div>
+                        <!-- Topics checkboxes will be added here -->
+                        </div>
+                    </div>
 
-        <!-- Include jQuery and Bootstrap JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <!-- Include DataTables JS -->
-        <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+                    <div id="selected-topics-container"></div>
+
+                    <div class="row" id ="app-res">
+                        <div class="left-items">
+                        <button id="apply-topic-filter" class="btn">Apply</button>
+                        <button id="reset-topic-filter" class="btn">Reset</button>
+                        </div>
+                    </div>
+            </div>
+
+            <!----------------MODIFY THIS SECTION TO ADD A NEW ARTICLE ↑ most recent----------------->
+                <table id="myTable" class="table table-striped table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>Apr 6, 2023</td>
+                            <td><a href="../articles/top10sectors.html">Top Industries of Tomorrow – dominant sectors in 2030 and beyond</a></td>
+                            <td>Industry Developments</td>
+                            <td class="invisible">Top Industries of Tomorrow, Sami Bouzid, 3 minute read, dominant sectors, promising future, 2030, Tech, Renewable Energy, Healthcare, AI & ML, E-commerce, Biotech & Pharma, Transportation, Financial Services, IT & Cybersecurity, Telecommunications, Space Exploration, Sustainable Agriculture, Ed Tech & Remote Learning, unstoppable trend, exponential returns, military industry, global tensions, stock picking, timing, declining sectors, fossil energies, physical businesses, business models.</td>
+
+                        </tr>
+                        <tr>
+                            <td>Apr 8, 2023</td>
+                            <td><a href="../articles/PortOptiMarkowitz.html">Modern Portfolio Theory in Python – Portfolio Optimization using Markowitz Theory</a></td>
+                            <td>Theories</td>
+                            <td class="invisible">Modern Portfolio Theory, Python, Markowitz Theory, Top-Down Strategy, Macroeconomics analysis, recession, global financial crisis, high inflation, interest rates, unemployment, geopolitical tensions, long positions, stocks, well-diversified investment strategy, U.S., European stocks, rest of the world, Renewable Energies, AI & ML, Biotech & Pharma, Transportation, IT & Cybersecurity, Space Exploration, Sustainable Agriculture, Ed Tech & Remote Learning, military industry, Market Cap, 50 stocks, historical data, Sharpe Ratio, Sortino Ratio, Beta, Volatility, Expected Return, diversified portfolio, Efficient Frontier, random portfolios, top 10 portfolios, highest Sharpe Ratio, Excel file, optimal portfolio weights, limitations of MPT, rational investors, emotions and biases, competitive advantages, entry barriers, technological advancements, data privacy ethics.</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1, 2022</td>
+                            <td class="incom-art">The Bitcoin craze since early 2023 – <span class="incomming-word">Incomming...</span></td>
+                            <td>Market Trends</td>
+                            <td class="invisible">Sami</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1, 1999</td>
+                            <td class="incom-art">Mid 2023 review of current geopolitical tensions and potential alliances – <span class="incomming-word">Incomming...</span></td>
+                            <td>Political Events</td>
+                            <td class="invisible">Sami</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1, 1999</td>
+                            <td class="incom-art">Implementation of Statistical Arbitrage Strategy with Python – <span class="incomming-word">Incomming...</span></td>
+                            <td>Market Neutral</td>
+                            <td class="invisible">Sami</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1, 1999</td>
+                            <td class="incom-art">Implementation of Gradient Boosting algorithm with Python – <span class="incomming-word">Incomming...</span></td>
+                            <td>Machine Learning</td>
+                            <td class="invisible">Sami</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1, 1999</td>
+                            <td class="incom-art">– <span class="incomming-word">Incomming...</span></td>
+                            <td>Technical Analysis</td>
+                            <td class="invisible">Sami</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1, 1999</td>
+                            <td class="incom-art">– <span class="incomming-word">Incomming...</span></td>
+                            <td>Momentum</td>
+                            <td class="invisible">Sami</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1, 1999</td>
+                            <td class="incom-art">– <span class="incomming-word">Incomming...</span></td>
+                            <td>Pairs Trading</td>
+                            <td class="invisible">Sami</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1, 1999</td>
+                            <td class="incom-art">– <span class="incomming-word">Incomming...</span></td>
+                            <td>Volatility</td>
+                            <td class="invisible">Sami</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1, 1999</td>
+                            <td class="incom-art">– <span class="incomming-word">Incomming...</span></td>
+                            <td>Stocks</td>
+                            <td class="invisible">Sami</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1, 1999</td>
+                            <td class="incom-art">– <span class="incomming-word">Incomming...</span></td>
+                            <td>Cryptocurrencies</td>
+                            <td class="invisible">Sami</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1, 1999</td>
+                            <td class="incom-art">– <span class="incomming-word">Incomming...</span></td>
+                            <td>Industries & Sectors</td>
+                            <td class="invisible">Sami</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            <!--If no results are found in the search bar-->
+            <div id="no-results-message"></div>
         </div>
 
         <!--FOOTER-->
@@ -218,13 +262,19 @@
                </div>
                <div class="footer-bot">
                    <h2><b>SBlog © 2023</b></h2>
-                   <a href="#"> <span> Back to top</span> ▴</a>
+                   <a href="#"> <span> Back to top</span> ↑</a>
                </div>
-       </footer>
+        </footer>
 
-       
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-       <script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"></script>
-       <script src="../js/allArticles.js"></script>
+        <!--SCRIPTS-->
+             <!-- Include jQuery and Bootstrap JS -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <!-- Include DataTables JS -->
+            <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>  
+            <!--Other JS-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+            <script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"></script>
+            <script src="../js/allArticles.js"></script>
     <body>
 </html>

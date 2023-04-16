@@ -31,18 +31,27 @@
     background-color: transparent;
   }
   h1::selection,
-  .presleft p::selection,  
-  h2::selection,
-  h3::selection,
-  .Hobbylist li::selection,
-  .Hobbylist b::selection,
-  .EduXpCer p::selection,
-  h4::selection,
-  .cert-item span::selection{
+  td::selection,
+  td a::selection,
+  td span::selection,
+  .filter-sort-btn::selection,
+  .text-btn::selection,
+  .text-btn span::selection,
+  #reset-topic-filter::selection,
+  #topic-container::selection,
+  .search-input::selection,
+  .topic-box::selection,
+  label::selection,
+  .count-parentheses::selection,
+  #no-results-message::selection,
+  .dataTables_paginate li::selection,
+  .dataTables_info::selection  {
     background-color: black;
     color:white;
   }
 
+  .search-text::selection,
+  #apply-topic-filter::selection,
   .f-submenu a::selection,
   .footer-bot h2::selection,
   .footer-bot a::selection,
@@ -108,15 +117,14 @@
   }
   .has-submenu::after {
     content: "▾";
-    margin-right: 0px;
     font-family: monospace;
-    transition: color 0.3s ease-out;
+    display: inline-block;
+    transition: transform 0.3s; /* Optional: add a smooth transition */
   }
+  
   .has-submenu.active::after {
-    content: "▹";
-    margin-right: 0px;
-    transition: color 0.3s ease-out;
-    font-family: monospace;
+    transform: rotate(-180deg);
+    transform-origin: center center;
   }
   .about:hover {
     border-bottom: 1.5px solid black;
@@ -276,14 +284,8 @@
     color: white;
     margin-top: 5px;
   }
-  .footer-bot a span:hover {
+  .footer-bot a:hover > span {
     border-bottom: 1.5px solid white;
-  }
-
-  .foot-pyr {
-    width: 100%;
-    margin: 0;
-    padding: 0;
   }
 
   /**********************MY ARTICLES**********************/
@@ -292,8 +294,7 @@
   color: black;
   padding: 0 25px;
   padding-top: 230px;
-  padding-bottom: 300px;
-  border: 1px solid blue;
+  padding-bottom: 70px;
 }
 /* INTRO = search bar*/
 .intro {
@@ -301,7 +302,6 @@
   margin-bottom: 5px;
   border-bottom: 1.5px solid #ccc;
   height: 100%;
-  border: 1px solid blue;
 }
 h1 {
   font-size: 68px;
@@ -362,12 +362,14 @@ h1 {
   padding-top: 0;
   margin-top: 0;
 }
-
+table.dataTable {
+  width: 100% !important;
+}
 /* SETTINGS FILTER / SORT */
 .fil-symb {
-  margin-left: 5px; /* Add space between the button and the logo */
-  width: 25px; /* Adjust the width of the logo as needed */
-  height: 25px; /* Adjust the height of the logo as needed */
+  margin-left: 6px; /* Add space between the button and the logo */
+  width: 20px; /* Adjust the width of the logo as needed */
+  height: 20px; /* Adjust the height of the logo as needed */
   cursor: pointer;
   margin-top: 0;
   padding-top: 0;
@@ -375,96 +377,196 @@ h1 {
 .sort-fil-cont {
   display: flex;
   align-items: center;
-  border: 1px solid blue;
+  margin-bottom: 10px;
 }
 .sort-settings-container {
   display: none;
   flex-direction: column;
   align-items: center;
-  border: 1px solid blue;
+  padding-top: 18px;
+}
+#apply-topic-filter, #reset-topic-filter {
+  display: none;
 }
 .row {
   display: flex;
   width: 100%;
   margin-bottom: 10px;
 }
-
+#app-res {
+  padding-top: 30px;
+}
+/* Add this CSS */
 .left-items {
   display: flex;
-  gap: 30px; /* Add the gap between the elements */
+  gap: 25px; /* Add the gap between the elements */
+  width: 30%;
 }
-
 .right-item {
   margin-left: auto; /* Push the element to the right */
 }
-
 .text-btn {
   cursor: pointer;
-  font-weight: normal;
   font-size: 18px;
+  font-weight: normal;
 }
 
+#filter-by-topic::after {
+  content: "▾";
+  font-family: monospace;
+  display: inline-block;
+  transition: transform 0.3s; /* Optional: add a smooth transition */
+  margin-left: 5px;
+}
+
+#filter-by-topic.active::after {
+  content: "▾";
+  transform: rotate(-180deg);
+  transform-origin: center center;
+  margin-left: 5px;
+}
+#filter-by-topic:hover >.underline-just-you {
+  border-bottom: 1.5px solid black;
+}
 .filter-sort-btn {
   cursor: pointer;
   font-weight: normal;
   font-size: 18px;
   font-weight: bold;
+  padding-top: 5px;
 }
-
 .filter-sort-btn:hover {
   background-color: transparent;
   color: inherit;
 }
-
 .btn {
   background-color: black;
   color: white;
-  border: none;
+  border: 1px solid black;
   cursor: pointer;
   padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  font-size: 18px;
+  font-weight: 200;
+  font-family: sans-serif;
+  width: 100%;
+  height: 47px;
 }
-
 .btn:hover {
   background-color: white;
   color: black;
 }
+#reset-topic-filter {
+  background-color: white;
+  color: black;
+}
+#reset-topic-filter:hover {
+  background-color: black;
+  color: white;
+}
 
 /* checkbox menu*/
-.custom-dropdown {
+#topic-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 26px;
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+.count-parentheses {
+  color: grey;
+  opacity: 0.9;
+}
+.topic-box {
   display: inline-block;
-  position: relative;
+  width: 24%; /* Set width to 25% to make 4 columns */
+  box-sizing: border-box; /* To include padding in the width calculation */
+  margin-bottom: 5px; /* Remove margin at the bottom */
+  text-align: left; /* Align text to the left */
+  white-space: nowrap; /* Prevent topic names from wrapping */
+  overflow: hidden; /* Hide any overflowing text */
 }
-
-.custom-dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  z-index: 1;
+.topic-checkbox {
+  display: inline-block;
+  margin-right: 3px;
+  vertical-align: middle; /* Align the checkbox vertically in the middle */
+}
+label {
+  display: inline-block;
+  vertical-align: middle; /* Align the label vertically in the middle */
+}
+.topic-label {
   display: block;
 }
-
-.custom-dropdown-menu label {
-  color: black;
-  padding: 8px 16px;
-  text-decoration: none;
-  display: block;
+.topic-box label, .topic-box input[type="checkbox"] {
+  cursor: pointer;
+}
+/* Style the checkboxes */
+.topic-box input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  margin-right: 7px;
+  appearance: none;
+  outline: none;
+  background-color: white;
+  border: 2.2px solid #000;
 }
 
-.custom-dropdown:hover .custom-dropdown-menu {
-  display: block;
+/* Style the checkboxes when checked */
+.topic-box input[type="checkbox"]:checked {
+  background-color: #000;
 }
 
+/* Selected & applied checkboxes */
+.selected-topic {
+  display: inline-block;
+  margin-right: 30px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.selected-topic-checkbox {
+  appearance: none;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 0;
+  width: 14px;
+  height: 14px;
+  margin-left: 0;
+  margin-right: 5px;
+  cursor: pointer;
+  vertical-align: middle; /* Add this property */
+  margin-left: 4px; /* Add this property */
+
+}
+.selected-topic label {
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: normal;
+}
 
 /* My Table */
 #myTable {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
+  padding-bottom: 100px;
+  border-bottom: 1px solid black;
+  margin-bottom: 0;
+}
+.incom-art {
+  color: grey;
+  cursor: pointer;
+}
+.incomming-word {
+  font-weight: bold;
+}
+#myTable td a {
+  text-decoration: none;
+  color: black;
+}
+#myTable td a:hover {
+  border-bottom: 1px solid black;
 }
  /* Set the column widths */
  #myTable td:nth-child(1) {
@@ -476,22 +578,16 @@ h1 {
 #myTable td:nth-child(3) {
   width: 20%;
 }
-
 /* Set the row height and font size */
 #myTable tr {
-  height: 50px;
-  font-size: 20px;
-}
-
-/* Set the row height for rows with long sentences */
-#myTable tr.long-text {
-  height: 50px;
+  height: 52px;
+  font-size: 18px;
+  font-weight: normal;
 }
 /* Set relative positioning context for the ::after pseudo-element */
 #myTable tbody tr {
   position: relative;
 }
-
 /* Add horizontal borders between rows using the ::before pseudo-element */
 #myTable tbody tr::before {
   content: "";
@@ -511,6 +607,56 @@ h1 {
   border-top: 1px solid black; /* set border style and color */
 }
 
+/****** TABLE FOOTER ******/
+/* Make the pagination controls and the "Showing x to y of z entries" text appear in the same row */
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+    display: inline-block;
+    vertical-align: middle;
+}
+/* Remove the bullet points and display the pagination elements (Previous and Next) on the same line */
+.dataTables_paginate ul.pagination {
+    list-style-type: none;
+    padding-left: 0;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+.dataTables_paginate ul.pagination li {
+    display: inline;
+}
+/* Hide page numbers */
+.dataTables_paginate .paginate_button.current,
+.dataTables_paginate .paginate_button:not(.previous):not(.next) {
+    display: none;
+}
+/* Add space between "Previous" and "Next" */
+.dataTables_paginate ul.pagination > li + li {
+    margin-left: 1rem;
+}
+/* Add space between "Showing x to y of z entries" and pagination controls */
+.dataTables_info {
+    margin-right: 15%;
+}
+/* Set font size and font weight for the pagination row */
+.dataTables_paginate,
+.dataTables_info {
+  font-size: 18px;
+  font-weight: normal;
+}
+.dataTables_paginate {
+  cursor: pointer;
+}
+/******IF NO RESULTS DURING RESEARCH*****/
+.dataTables_empty {
+  font-weight: bold;
+  font-size: larger;
+}
+#no-results-message {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+
   /**********************MEDIA QUERY**********************/
   /*HEADER - CSS*/
   .scroll-to-bottom {
@@ -523,7 +669,6 @@ h1 {
     left: 50%; /* Position the link horizontally in the center */
     transform: translate(-50%, -50%); /* Adjust the link position relative to its own size */
   }
-  
   /* HEADER*/
   @media (max-width: 980px) {
     .nav {

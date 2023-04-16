@@ -107,15 +107,13 @@ header {
 }
 .has-submenu::after {
   content: "▾";
-  margin-right: 0px;
   font-family: monospace;
-  transition: color 0.3s ease-out;
+  display: inline-block;
+  transition: transform 0.3s; /* Optional: add a smooth transition */
 }
 .has-submenu.active::after {
-  content: "▹";
-  margin-right: 0px;
-  transition: color 0.3s ease-out;
-  font-family: monospace;
+  transform: rotate(-180deg);
+  transform-origin: center center;
 }
 .about:hover {
   border-bottom: 1.5px solid #2d712a;
@@ -277,7 +275,7 @@ footer {
   color: #2d712a;
   margin-top: 5px;
 }
-.footer-bot a span:hover {
+.footer-bot a:hover > span {
   border-bottom: 1.5px solid #2d712a;
 }
 
