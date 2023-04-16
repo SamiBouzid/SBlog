@@ -12,7 +12,14 @@
     font-weight: 348;
     width: 100%;
     font-family: sans-serif;
-  }  
+  }
+  body{
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    }
+  .fade-in {
+    opacity: 1 !important;
+  }
   body a:not(#articlesp2 a) {
     white-space: nowrap;
   }

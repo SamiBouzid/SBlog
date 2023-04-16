@@ -7,7 +7,16 @@ body, h1 {
   font-family: sans-serif;
   font-weight: 348;
   width: 100%;
-}  
+}
+
+body{
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  }
+
+.fade-in {
+  opacity: 1 !important;
+}
 
 /* HIGHLIGHITNG */
 .header-logo img::selection,
