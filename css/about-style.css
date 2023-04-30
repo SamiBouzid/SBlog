@@ -477,6 +477,7 @@ display: inline;
   text-decoration: none;
   text-align: center;
 }
+
 .cert-logo {
   max-width: 100%;
   height: 80px;
@@ -485,12 +486,12 @@ display: inline;
   margin-top: 5px;
   font-size: 14px;
 }
-.cert-grid img {
-  opacity: 0.8;
+/* .cert-grid img {
+  transition: transform 0.5s ease;
 }
 .cert-item:hover .cert-logo{
-  opacity: 1; /* Change this value to the desired opacity level */
-}
+  transform: rotate(3deg);
+} */
 .cert-grid a {
   text-decoration: none;
   color: black;
