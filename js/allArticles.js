@@ -252,20 +252,20 @@ function searchInDatabase() {
 
     // Define the filters based on the parameter value
     var filterMap = {
-        '1': 'Macroeconomics Trends',
-        '2': 'Market Trends',
-        '3': 'Industry Developments',
-        '4': 'Political Events',
-        '5': 'Theories',
-        '6': 'Market Neutral',
-        '7': 'Machine Learning',
-        '8': 'Technical Analysis',
-        '9': 'Momentum',
-        '10': 'Pairs Trading',
-        '11': 'Volatility',
-        '12': 'Stocks',
+        '1': 'Fundamental',
+        '2': 'Algorithmic',
+        '3': 'Quantitative',
+        '4': 'Economic Research',
+        '5': 'Geopolitical Analysis',
+        '6': 'Sector Analysis',
+        '7': 'Company Analysis',
+        '8': 'Equity',
+        '9': 'Fixed Income',
+        '10': 'Commodities',
+        '11': 'Real Estate',
+        '12': 'Foreign Exchange',
         '13': 'Cryptocurrencies',
-        '14': 'Industries & Sectors',
+        '14': 'Derivatives',
     };
 
     // Apply the preset filter if the URL parameter exists

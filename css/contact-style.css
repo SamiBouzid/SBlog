@@ -195,7 +195,7 @@ header {
 :root {
   --text-color: #833600;
   --text-color-scrolled: black;
-  --submenu-bg-color: transparent;
+  --submenu-bg-color: #CAFFFF;
   --submenu-bg-color-scrolled: white;
 }
 .about:hover,

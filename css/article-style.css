@@ -178,7 +178,7 @@ td::selection,
   :root {
     --text-color: #0000FF;
     --text-color-scrolled: black;
-    --submenu-bg-color: transparent;
+    --submenu-bg-color: #FFF1D6;
     --submenu-bg-color-scrolled: white;
   }
   .about:hover,

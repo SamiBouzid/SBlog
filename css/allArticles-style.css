@@ -183,7 +183,7 @@
   :root {
     --text-color: black;
     --text-color-scrolled: black;
-    --submenu-bg-color: transparent;
+    --submenu-bg-color: white;
     --submenu-bg-color-scrolled: white;
   }
   .about:hover,
